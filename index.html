@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR ATTIRE | Professional Uniforms & Garments</title>
+<meta name="description" content="AR ATTIRE provides professional uniforms, ready-made garments and quality garment hangers in the UAE.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, Helvetica, sans-serif; color: #1b1b1b; background: #fff; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { width: 90%; max-width: 1200px; margin: auto; }
+header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.97); border-bottom: 1px solid #eee; }
+.nav { height: 78px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 27px; font-weight: 800; letter-spacing: 2px; }
+.logo span { font-weight: 400; }
+nav { display: flex; gap: 30px; align-items: center; }
+nav a { font-size: 14px; font-weight: 600; color: #333; transition: .3s; }
+nav a:hover { color: #9b7a45; }
+.nav-button { background: #1b1b1b; color: white !important; padding: 11px 19px; border-radius: 4px; }
+.hero {
+min-height: 650px; display: flex; align-items: center; color: white;
+background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.45), rgba(0,0,0,.15)),
+linear-gradient(135deg, #252525, #777);
+}
+.hero-content { max-width: 700px; padding: 90px 0; }
+.eyebrow, .section-label {
+text-transform: uppercase; letter-spacing: 3px; font-size: 13px;
+font-weight: bold; color: #d4b477; margin-bottom: 18px;
+}
+.hero h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.05; margin-bottom: 25px; letter-spacing: -2px; }
+.hero h1 span { color: #d4b477; }
+.hero p { font-size: 18px; max-width: 620px; color: #eee; margin-bottom: 35px; }
+.buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.button { display: inline-block; padding: 14px 25px; border-radius: 4px; font-weight: bold; transition: .3s; }
+.button-primary { background: #d4b477; color: #111; }
+.button-primary:hover { background: #e5c88e; }
+.button-outline { border: 1px solid white; color: white; }
+.button-outline:hover { background: white; color: #111; }
+.intro { padding: 90px 0; text-align: center; }
+.intro h2, .section-heading h2 { font-size: 42px; line-height: 1.15; margin-bottom: 20px; }
+.intro p { max-width: 750px; margin: auto; color: #666; font-size: 17px; }
+.uniforms { background: #f7f5f1; padding: 90px 0; }
+.section-heading { max-width: 750px; margin-bottom: 45px; }
+.section-heading p { color: #666; font-size: 16px; }
+.uniform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.uniform-card { background: white; min-height: 310px; border-radius: 8px; overflow: hidden; border: 1px solid #e9e5de; transition: .3s; }
+.uniform-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,.08); }
+.card-image { height: 190px; background: linear-gradient(135deg, #d7d2c9, #777); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
+.card-content { padding: 22px; }
+.card-content h3 { font-size: 21px; margin-bottom: 8px; }
+.card-content p { color: #777; font-size: 14px; }
+.business { padding: 100px 0; }
+.business-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.business-card { min-height: 360px; padding: 45px; border-radius: 8px; background: #1c1c1c; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
+.business-card.secondary { background: #eee9df; color: #1b1b1b; }
+.business-card .number { font-size: 13px; letter-spacing: 2px; margin-bottom: auto; opacity: .65; }
+.business-card h3 { font-size: 34px; margin-bottom: 12px; }
+.business-card p { color: #ccc; max-width: 480px; }
+.business-card.secondary p { color: #666; }
+.about { padding: 90px 0; background: #f7f7f7; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.about h2 { font-size: 42px; margin-bottom: 20px; }
+.about p { color: #666; margin-bottom: 16px; }
+.about-box { min-height: 360px; background: linear-gradient(135deg, #292929, #777); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; letter-spacing: 4px; font-size: 24px; font-weight: bold; }
+.contact { padding: 90px 0; text-align: center; }
+.contact p { color: #666; margin-bottom: 28px; }
+.contact-info { display: flex; justify-content: center; gap: 45px; flex-wrap: wrap; margin-top: 35px; }
+.contact-item { font-weight: bold; }
+.contact-item span { display: block; font-weight: normal; color: #666; margin-top: 5px; }
+footer { background: #171717; color: white; padding: 45px 0; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
+.footer-logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+footer p { color: #999; font-size: 13px; }
+@media (max-width: 800px) {
+.nav { height: auto; padding: 18px 0; flex-direction: column; gap: 18px; }
+nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
+.hero { min-height: 580px; }
+.hero h1 { font-size: 46px; }
+.uniform-grid, .business-grid, .about-grid { grid-template-columns: 1fr; }
+.intro h2, .section-heading h2, .about h2 { font-size: 34px; }
+.business-card { min-height: 300px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="container nav">
+<a href="#" class="logo">AR <span>ATTIRE</span></a>
+<nav>
+<a href="#uniforms">Uniforms</a>
+<a href="#garments">Garments</a>
+<a href="#hangers">Hangers</a>
+<a href="#about">About</a>
+<a href="#contact" class="nav-button">Contact Us</a>
+</nav>
+</div>
+</header>
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<div class="eyebrow">Professional Uniform Solutions</div>
+<h1>Uniforms made for <span>your business.</span></h1>
+<p>AR ATTIRE provides professional uniforms designed for schools, hotels, companies, events and organisations, with quality garments made for everyday performance.</p>
+<div class="buttons">
+<a href="#uniforms" class="button button-primary">Explore Uniforms</a>
+<a href="#contact" class="button button-outline">Request an Enquiry</a>
+</div>
+</div>
+</div>
+</section>
+<section class="intro">
+<div class="container">
+<div class="section-label">AR ATTIRE</div>
+<h2>Professional clothing for professional teams.</h2>
+<p>From everyday workwear to complete uniform programs, we help businesses create a consistent and professional appearance for their teams.</p>
+</div>
+</section>
+<section class="uniforms" id="uniforms">
+<div class="container">
+<div class="section-heading">
+<div class="section-label">Our Main Division</div>
+<h2>Uniforms</h2>
+<p>Professional uniform solutions for schools, hotels, companies, restaurants, events and other organisations.</p>
+</div>
+<div class="uniform-grid">
+<div class="uniform-card">
+<div class="card-image">School Uniforms</div>
+<div class="card-content">
+<h3>School Uniforms</h3>
+<p>Comfortable and professional uniforms for students, teachers and school staff.</p>
+</div>
+</div>
+<div class="uniform-card">
+<div class="card-image">Corporate Uniforms</div>
+<div class="card-content">
+<h3>Corporate Uniforms</h3>
+<p>Professional workwear designed to create a consistent company image.</p>
+</div>
+</div>
+<div class="uniform-card">
+<div class="card-image">Hotel & Hospitality</div>
+<div class="card-content">
+<h3>Hotel & Hospitality</h3>
+<p>Smart and practical uniforms for hotels, restaurants and hospitality teams.</p>
+</div>
+</div>
+<div class="uniform-card">
+<div class="card-image">Event Uniforms</div>
+<div class="card-content">
+<h3>Event Uniforms</h3>
+<p>Coordinated clothing for events, exhibitions, promotions and special occasions.</p>
+</div>
+</div>
+<div class="uniform-card">
+<div class="card-image">Staff Workwear</div>
+<div class="card-content">
+<h3>Staff Workwear</h3>
+<p>Durable and comfortable garments for everyday professional use.</p>
+</div>
+</div>
+<div class="uniform-card">
+<div class="card-image">Custom Uniforms</div>
+<div class="card-content">
+<h3>Custom Uniforms</h3>
+<p>Uniform programs tailored to your organisation's requirements and branding.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="business" id="garments">
+<div class="container">
+<div class="business-grid">
+<div class="business-card">
+<div class="number">02 / READY-MADE GARMENTS</div>
+<h3>Ready-Made Garments</h3>
+
+<p>Quality ready-made clothing for businesses, retailers and professional customers.</p>
+</div>
+<div class="business-card secondary" id="hangers">
+<div class="number">03 / GARMENT ACCESSORIES</div>
+<h3>Garment Hangers</h3>
+<p>Practical garment hanger solutions for clothing stores, businesses and professional garment displays.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="about" id="about">
+<div class="container">
+<div class="about-grid">
+<div>
+<div class="section-label">About AR ATTIRE</div>
+<h2>Built around quality and presentation.</h2>
+<p>AR ATTIRE is focused on supplying professional clothing solutions for businesses and organisations.</p>
+<p>Our primary focus is uniforms, supported by ready-made garments and garment accessories.</p>
+<p>We aim to provide practical, presentable and dependable products for professional environments.</p>
+</div>
+<div class="about-box">AR ATTIRE</div>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-label">Get In Touch</div>
+<h2>Let's discuss your requirements.</h2>
+<p>Contact AR ATTIRE for uniform enquiries, garment requirements or hanger solutions.</p>
+<a href="mailto:info@arattire.ae" class="button button-primary">Email Us</a>
+<div class="contact-info">
+<div class="contact-item">Email<span>info@arattire.ae</span></div>
+<div class="contact-item">Website<span>arattire.ae</span></div>
+<div class="contact-item">Location<span>United Arab Emirates</span></div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container footer-content">
+<div class="footer-logo">AR ATTIRE</div>
+<p>© 2026 AR ATTIRE. All rights reserved.</p>
+</div>
+</footer>
+</body>
+</html>
