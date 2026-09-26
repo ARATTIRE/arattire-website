@@ -3,223 +3,894 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AR ATTIRE | Professional Uniforms & Garments</title>
-<meta name="description" content="AR ATTIRE provides professional uniforms, ready-made garments and quality garment hangers in the UAE.">
+<title>AR ATTIRE | Professional Uniforms</title>
+<meta name="description" content="AR ATTIRE — Professional uniforms, ready-made garments and garment hangers. Established 2003.">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: Arial, Helvetica, sans-serif; color: #1b1b1b; background: #fff; line-height: 1.6; }
-a { text-decoration: none; color: inherit; }
-.container { width: 90%; max-width: 1200px; margin: auto; }
-header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.97); border-bottom: 1px solid #eee; }
-.nav { height: 78px; display: flex; align-items: center; justify-content: space-between; }
-.logo { font-size: 27px; font-weight: 800; letter-spacing: 2px; }
-.logo span { font-weight: 400; }
-nav { display: flex; gap: 30px; align-items: center; }
-nav a { font-size: 14px; font-weight: 600; color: #333; transition: .3s; }
-nav a:hover { color: #9b7a45; }
-.nav-button { background: #1b1b1b; color: white !important; padding: 11px 19px; border-radius: 4px; }
-.hero {
-min-height: 650px; display: flex; align-items: center; color: white;
-background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.45), rgba(0,0,0,.15)),
-linear-gradient(135deg, #252525, #777);
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#10243a;
+background:#f8f5ee;
+line-height:1.5;
 }
-.hero-content { max-width: 700px; padding: 90px 0; }
-.eyebrow, .section-label {
-text-transform: uppercase; letter-spacing: 3px; font-size: 13px;
-font-weight: bold; color: #d4b477; margin-bottom: 18px;
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:94%;max-width:1400px;margin:auto}
+
+/* TOP BAR */
+.topbar{
+background:#071b2d;
+color:#fff;
+font-size:12px;
+padding:7px 4%;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
-.hero h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.05; margin-bottom: 25px; letter-spacing: -2px; }
-.hero h1 span { color: #d4b477; }
-.hero p { font-size: 18px; max-width: 620px; color: #eee; margin-bottom: 35px; }
-.buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-.button { display: inline-block; padding: 14px 25px; border-radius: 4px; font-weight: bold; transition: .3s; }
-.button-primary { background: #d4b477; color: #111; }
-.button-primary:hover { background: #e5c88e; }
-.button-outline { border: 1px solid white; color: white; }
-.button-outline:hover { background: white; color: #111; }
-.intro { padding: 90px 0; text-align: center; }
-.intro h2, .section-heading h2 { font-size: 42px; line-height: 1.15; margin-bottom: 20px; }
-.intro p { max-width: 750px; margin: auto; color: #666; font-size: 17px; }
-.uniforms { background: #f7f5f1; padding: 90px 0; }
-.section-heading { max-width: 750px; margin-bottom: 45px; }
-.section-heading p { color: #666; font-size: 16px; }
-.uniform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.uniform-card { background: white; min-height: 310px; border-radius: 8px; overflow: hidden; border: 1px solid #e9e5de; transition: .3s; }
-.uniform-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,.08); }
-.card-image { height: 190px; background: linear-gradient(135deg, #d7d2c9, #777); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
-.card-content { padding: 22px; }
-.card-content h3 { font-size: 21px; margin-bottom: 8px; }
-.card-content p { color: #777; font-size: 14px; }
-.business { padding: 100px 0; }
-.business-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.business-card { min-height: 360px; padding: 45px; border-radius: 8px; background: #1c1c1c; color: white; display: flex; flex-direction: column; justify-content: flex-end; }
-.business-card.secondary { background: #eee9df; color: #1b1b1b; }
-.business-card .number { font-size: 13px; letter-spacing: 2px; margin-bottom: auto; opacity: .65; }
-.business-card h3 { font-size: 34px; margin-bottom: 12px; }
-.business-card p { color: #ccc; max-width: 480px; }
-.business-card.secondary p { color: #666; }
-.about { padding: 90px 0; background: #f7f7f7; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
-.about h2 { font-size: 42px; margin-bottom: 20px; }
-.about p { color: #666; margin-bottom: 16px; }
-.about-box { min-height: 360px; background: linear-gradient(135deg, #292929, #777); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; letter-spacing: 4px; font-size: 24px; font-weight: bold; }
-.contact { padding: 90px 0; text-align: center; }
-.contact p { color: #666; margin-bottom: 28px; }
-.contact-info { display: flex; justify-content: center; gap: 45px; flex-wrap: wrap; margin-top: 35px; }
-.contact-item { font-weight: bold; }
-.contact-item span { display: block; font-weight: normal; color: #666; margin-top: 5px; }
-footer { background: #171717; color: white; padding: 45px 0; }
-.footer-content { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
-.footer-logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
-footer p { color: #999; font-size: 13px; }
-@media (max-width: 800px) {
-.nav { height: auto; padding: 18px 0; flex-direction: column; gap: 18px; }
-nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
-.hero { min-height: 580px; }
-.hero h1 { font-size: 46px; }
-.uniform-grid, .business-grid, .about-grid { grid-template-columns: 1fr; }
-.intro h2, .section-heading h2, .about h2 { font-size: 34px; }
-.business-card { min-height: 300px; }
+.topbar span{opacity:.9}
+
+/* HEADER */
+header{
+background:#09233a;
+color:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.header-main{
+min-height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+width:94%;
+max-width:1500px;
+margin:auto;
+}
+.logo{
+width:270px;
+height:auto;
+object-fit:contain;
+}
+.header-right{
+display:flex;
+align-items:center;
+gap:22px;
+}
+.email{
+font-size:13px;
+display:flex;
+align-items:center;
+gap:8px;
+white-space:nowrap;
+}
+.email-icon{color:#e9bd5c;font-size:18px}
+.quote-btn{
+background:#f1c96d;
+color:#10243a;
+font-weight:700;
+padding:13px 24px;
+border-radius:4px;
+border:0;
+cursor:pointer;
+font-size:14px;
+}
+.quote-btn:hover{background:#ffe09a}
+nav{
+border-top:1px solid rgba(255,255,255,.12);
+}
+.nav-inner{
+display:flex;
+justify-content:flex-end;
+gap:38px;
+width:94%;
+max-width:1500px;
+margin:auto;
+}
+nav a{
+padding:10px 0 12px;
+font-size:13px;
+color:#fff;
+}
+nav a:hover{color:#f1c96d}
+
+/* HERO */
+.hero{
+min-height:455px;
+height:38vw;
+max-height:570px;
+background:
+linear-gradient(90deg,rgba(4,20,34,.97) 0%,rgba(5,25,42,.84) 34%,rgba(5,25,42,.12) 68%,rgba(5,25,42,.08)),
+url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1800&q=85");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+}
+.hero-content{
+width:94%;
+max-width:1400px;
+margin:auto;
+color:white;
+}
+.hero-copy{max-width:620px}
+.hero h1{
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(42px,5vw,76px);
+line-height:.95;
+letter-spacing:-1px;
+}
+.hero h1 span{color:#f2c96b}
+.hero p{
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(17px,2vw,25px);
+margin:18px 0 25px;
+}
+.hero-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+.btn-gold{
+background:#f1c96d;
+color:#10243a;
+padding:13px 25px;
+border-radius:4px;
+font-weight:700;
+font-size:14px;
+}
+.btn-outline{
+border:1px solid #fff;
+color:#fff;
+padding:12px 25px;
+border-radius:4px;
+font-weight:700;
+font-size:14px;
+}
+.btn-outline:hover{background:#fff;color:#10243a}
+
+/* SECTION */
+section{padding:22px 0}
+.section-title{
+text-align:center;
+font-family:Georgia,"Times New Roman",serif;
+font-size:25px;
+color:#10243a;
+margin-bottom:14px;
+}
+.section-title:after{
+content:"";
+display:block;
+width:42px;
+height:2px;
+background:#d8aa48;
+margin:6px auto 0;
+}
+
+/* CARDS */
+.card-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
+.image-card{
+height:150px;
+position:relative;
+overflow:hidden;
+border-radius:3px;
+background:#132d45;
+}
+.image-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.3s;
+}
+.image-card:hover img{transform:scale(1.04)}
+.card-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,rgba(4,18,30,.08),rgba(4,18,30,.78));
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
+padding:18px;
+color:#fff;
+}
+.card-overlay h3{
+font-family:Georgia,"Times New Roman",serif;
+font-size:18px;
+max-width:220px;
+}
+.round-arrow{
+width:27px;
+height:27px;
+border-radius:50%;
+background:#f1c96d;
+color:#10243a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+flex-shrink:0;
+}
+
+/* PRODUCTS */
+.product-card{height:150px}
+
+/* TRUST */
+.trust{
+background:#f2eee5;
+border-top:1px solid #ded6c7;
+border-bottom:1px solid #ded6c7;
+padding:15px 0;
+}
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+}
+.trust-item{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+border-right:1px solid #d9d0c1;
+padding:5px 10px;
+}
+.trust-item:last-child{border:0}
+.trust-icon{
+font-size:30px;
+color:#c89939;
+}
+.trust-item strong{
+display:block;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:.3px;
+}
+
+/* SOLUTIONS */
+.solution-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:8px;
+}
+.solution{
+height:138px;
+position:relative;
+overflow:hidden;
+border-radius:3px;
+}
+.solution img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.solution:after{
+content:"";
+position:absolute;
+left:0;right:0;bottom:0;
+height:48%;
+background:linear-gradient(transparent,rgba(3,18,31,.9));
+}
+.solution-label{
+position:absolute;
+bottom:9px;
+left:12px;
+right:8px;
+z-index:2;
+color:white;
+font-family:Georgia,"Times New Roman",serif;
+font-size:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* PROCESS */
+.process{
+padding-top:15px;
+padding-bottom:25px;
+}
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:0;
+}
+.step{
+display:flex;
+align-items:center;
+gap:12px;
+padding:8px 25px;
+border-right:1px solid #d9d0c1;
+position:relative;
+}
+.step:last-child{border:0}
+.step-icon{
+width:48px;
+height:48px;
+border:1px solid #c89939;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+color:#10243a;
+flex-shrink:0;
+}
+.step-number{
+font-weight:bold;
+font-size:14px;
+}
+.step-text{
+font-size:12px;
+line-height:1.3;
+}
+.step-arrow{
+margin-left:auto;
+color:#c89939;
+font-size:25px;
+}
+
+/* ABOUT */
+.about{
+padding:0;
+}
+.about-grid{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+min-height:300px;
+}
+.about-image{
+background:url("https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85") center/cover;
+}
+.about-content{
+background:#f3efe7;
+padding:38px 45px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+.about-content h2{
+font-family:Georgia,"Times New Roman",serif;
+font-size:25px;
+margin-bottom:14px;
+}
+.about-content h2:after{
+content:"";
+display:block;
+width:40px;
+height:2px;
+background:#d5a746;
+margin-top:6px;
+}
+.about-content p{
+font-size:14px;
+max-width:560px;
+margin-bottom:20px;
+}
+
+/* CTA */
+.cta{
+background:
+linear-gradient(90deg,rgba(4,20,34,.92),rgba(4,20,34,.65)),
+url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=85") center/cover;
+color:#fff;
+padding:25px 0;
+}
+.cta-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+}
+.cta h2{
+font-family:Georgia,"Times New Roman",serif;
+font-size:28px;
+}
+.cta p{font-size:14px;opacity:.9}
+
+/* CONTACT */
+.contact{
+padding:35px 0;
+}
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:30px;
+}
+.contact-box h3{
+font-family:Georgia,"Times New Roman",serif;
+font-size:20px;
+margin-bottom:12px;
+}
+.contact-box p{
+font-size:14px;
+margin:6px 0;
+}
+.contact-box a:hover{color:#bd8d2e}
+
+/* FOOTER */
+footer{
+background:#071b2d;
+color:#fff;
+padding:35px 0 12px;
+}
+.footer-grid{
+display:grid;
+grid-template-columns:1.2fr 1fr 1.15fr 1.25fr 1fr;
+gap:25px;
+}
+.footer-logo{
+width:210px;
+margin-bottom:14px;
+}
+.footer-col h4{
+font-size:14px;
+margin-bottom:12px;
+color:#f1c96d;
+}
+.footer-col a,.footer-col p{
+display:block;
+font-size:12px;
+margin:6px 0;
+color:#d8dee5;
+}
+.footer-col a:hover{color:#f1c96d}
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,.2);
+margin-top:25px;
+padding-top:12px;
+display:flex;
+justify-content:space-between;
+font-size:11px;
+color:#c9d0d7;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.topbar{display:none}
+.header-main{
+min-height:70px;
+padding:8px 0;
+}
+.logo{width:185px}
+.header-right .email{display:none}
+.quote-btn{padding:10px 13px;font-size:11px}
+.nav-inner{
+justify-content:center;
+gap:15px;
+overflow-x:auto;
+}
+nav a{font-size:10px;white-space:nowrap}
+.hero{
+height:430px;
+min-height:430px;
+background-position:center;
+}
+.hero-copy{max-width:440px}
+.hero h1{font-size:45px}
+.hero p{font-size:17px}
+.card-grid{grid-template-columns:1fr}
+.solution-grid{
+grid-template-columns:repeat(3,1fr);
+}
+.process-grid{grid-template-columns:1fr 1fr}
+.step{border-bottom:1px solid #d9d0c1}
+.about-grid{grid-template-columns:1fr}
+.about-image{height:250px}
+.contact-grid{grid-template-columns:1fr 1fr}
+.footer-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media(max-width:600px){
+.container{width:92%}
+.header-main{width:92%}
+.nav-inner{width:94%}
+.logo{width:160px}
+.quote-btn{display:none}
+.hero{
+height:390px;
+min-height:390px;
+}
+.hero h1{font-size:38px}
+.hero p{font-size:16px}
+.hero-buttons .btn-gold,
+.hero-buttons .btn-outline{
+padding:11px 17px;
+}
+.card-grid{gap:10px}
+.image-card{height:155px}
+.trust-grid{grid-template-columns:1fr 1fr}
+.trust-item{
+border-bottom:1px solid #d9d0c1;
+}
+.trust-item:nth-child(2){border-right:0}
+.solution-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.solution{height:125px}
+.process-grid{grid-template-columns:1fr}
+.step{
+border-right:0;
+padding:10px 5px;
+}
+.cta-inner{
+flex-direction:column;
+align-items:flex-start;
+}
+.contact-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.footer-bottom{
+flex-direction:column;
+gap:7px;
+}
 }
 </style>
 </head>
 
 <body>
-<header>
-<div class="container nav">
-<a href="#" class="logo">AR <span>ATTIRE</span></a>
-<nav>
-<a href="#uniforms">Uniforms</a>
-<a href="#garments">Garments</a>
-<a href="#hangers">Hangers</a>
-<a href="#about">About</a>
-<a href="#contact" class="nav-button">Contact Us</a>
-</nav>
-</div>
-</header>
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<div class="eyebrow">Professional Uniform Solutions</div>
-<h1>Uniforms made for <span>your business.</span></h1>
-<p>AR ATTIRE provides professional uniforms designed for schools, hotels, companies, events and organisations, with quality garments made for everyday performance.</p>
-<div class="buttons">
-<a href="#uniforms" class="button button-primary">Explore Uniforms</a>
-<a href="#contact" class="button button-outline">Request an Enquiry</a>
-</div>
-</div>
-</div>
-</section>
-<section class="intro">
-<div class="container">
-<div class="section-label">AR ATTIRE</div>
-<h2>Professional clothing for professional teams.</h2>
-<p>From everyday workwear to complete uniform programs, we help businesses create a consistent and professional appearance for their teams.</p>
-</div>
-</section>
-<section class="uniforms" id="uniforms">
-<div class="container">
-<div class="section-heading">
-<div class="section-label">Our Main Division</div>
-<h2>Uniforms</h2>
-<p>Professional uniform solutions for schools, hotels, companies, restaurants, events and other organisations.</p>
-</div>
-<div class="uniform-grid">
-<div class="uniform-card">
-<div class="card-image">School Uniforms</div>
-<div class="card-content">
-<h3>School Uniforms</h3>
-<p>Comfortable and professional uniforms for students, teachers and school staff.</p>
-</div>
-</div>
-<div class="uniform-card">
-<div class="card-image">Corporate Uniforms</div>
-<div class="card-content">
-<h3>Corporate Uniforms</h3>
-<p>Professional workwear designed to create a consistent company image.</p>
-</div>
-</div>
-<div class="uniform-card">
-<div class="card-image">Hotel & Hospitality</div>
-<div class="card-content">
-<h3>Hotel & Hospitality</h3>
-<p>Smart and practical uniforms for hotels, restaurants and hospitality teams.</p>
-</div>
-</div>
-<div class="uniform-card">
-<div class="card-image">Event Uniforms</div>
-<div class="card-content">
-<h3>Event Uniforms</h3>
-<p>Coordinated clothing for events, exhibitions, promotions and special occasions.</p>
-</div>
-</div>
-<div class="uniform-card">
-<div class="card-image">Staff Workwear</div>
-<div class="card-content">
-<h3>Staff Workwear</h3>
-<p>Durable and comfortable garments for everyday professional use.</p>
-</div>
-</div>
-<div class="uniform-card">
-<div class="card-image">Custom Uniforms</div>
-<div class="card-content">
-<h3>Custom Uniforms</h3>
-<p>Uniform programs tailored to your organisation's requirements and branding.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="business" id="garments">
-<div class="container">
-<div class="business-grid">
-<div class="business-card">
-<div class="number">02 / READY-MADE GARMENTS</div>
-<h3>Ready-Made Garments</h3>
 
-<p>Quality ready-made clothing for businesses, retailers and professional customers.</p>
+<div class="topbar">
+<span>AR ATTIRE — Professional Uniform Solutions</span>
+<span>Established 2003 &nbsp; | &nbsp; UAE & International Supply</span>
 </div>
-<div class="business-card secondary" id="hangers">
-<div class="number">03 / GARMENT ACCESSORIES</div>
-<h3>Garment Hangers</h3>
-<p>Practical garment hanger solutions for clothing stores, businesses and professional garment displays.</p>
+
+<header>
+<div class="header-main">
+<a href="#home">
+<img class="logo" src="ar-attire-logo-final.jpg" alt="AR ATTIRE — Established 2003">
+</a>
+
+<div class="header-right">
+<a class="email" href="mailto:info@arattire.ae">
+<span class="email-icon">✉</span> info@arattire.ae
+</a>
+<a class="email" href="mailto:sales@arattire.ae">
+<span class="email-icon">✉</span> sales@arattire.ae
+</a>
+<a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote">
+Request a Quote &nbsp; ›
+</a>
+</div>
+</div>
+
+<nav>
+<div class="nav-inner">
+<a href="#home">Home</a>
+<a href="#uniforms">Uniforms</a>
+<a href="#products">Ready-Made Garments</a>
+<a href="#products">Garment Hangers</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="hero-copy">
+<h1>PROFESSIONAL<br><span>UNIFORMS</span></h1>
+<p>Made for Schools, Businesses & Hospitality</p>
+<div class="hero-buttons">
+<a class="btn-gold" href="#uniforms">Explore Uniforms &nbsp; ›</a>
+<a class="btn-outline" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote">Request a Quote</a>
 </div>
 </div>
 </div>
 </section>
-<section class="about" id="about">
+
+<!-- SERVICES -->
+<section id="uniforms">
 <div class="container">
-<div class="about-grid">
-<div>
-<div class="section-label">About AR ATTIRE</div>
-<h2>Built around quality and presentation.</h2>
-<p>AR ATTIRE is focused on supplying professional clothing solutions for businesses and organisations.</p>
-<p>Our primary focus is uniforms, supported by ready-made garments and garment accessories.</p>
-<p>We aim to provide practical, presentable and dependable products for professional environments.</p>
+<h2 class="section-title">OUR SERVICES</h2>
+
+<div class="card-grid">
+
+<div class="image-card">
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=85" alt="School Uniforms">
+<div class="card-overlay">
+<h3>SCHOOL<br>UNIFORMS</h3>
+<span class="round-arrow">›</span>
 </div>
-<div class="about-box">AR ATTIRE</div>
+</div>
+
+<div class="image-card">
+<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85" alt="Corporate Uniforms">
+<div class="card-overlay">
+<h3>CORPORATE<br>UNIFORMS</h3>
+<span class="round-arrow">›</span>
+</div>
+</div>
+
+<div class="image-card">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Hospitality Workwear">
+<div class="card-overlay">
+<h3>HOSPITALITY<br>& WORKWEAR</h3>
+<span class="round-arrow">›</span>
+</div>
+</div>
+
 </div>
 </div>
 </section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<div class="container">
+<h2 class="section-title">OUR PRODUCTS</h2>
+
+<div class="card-grid">
+
+<div class="image-card product-card">
+<img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=85" alt="Uniforms">
+<div class="card-overlay">
+<h3>UNIFORMS</h3>
+<span class="round-arrow">›</span>
+</div>
+</div>
+
+<div class="image-card product-card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85" alt="Ready-Made Garments">
+<div class="card-overlay">
+<h3>READY-MADE<br>GARMENTS</h3>
+<span class="round-arrow">›</span>
+</div>
+</div>
+
+<div class="image-card product-card">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=85" alt="Garment Hangers">
+<div class="card-overlay">
+<h3>GARMENT<br>HANGERS</h3>
+<span class="round-arrow">›</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+<div class="container trust-grid">
+
+<div class="trust-item">
+<div class="trust-icon">▣</div>
+<div><strong>Established<br>2003</strong></div>
+</div>
+
+<div class="trust-item">
+<div class="trust-icon">◇</div>
+<div><strong>Quality<br>Products</strong></div>
+</div>
+
+<div class="trust-item">
+<div class="trust-icon">▱</div>
+<div><strong>Bulk<br>Supply</strong></div>
+</div>
+
+<div class="trust-item">
+<div class="trust-icon">◎</div>
+<div><strong>UAE &<br>International</strong></div>
+</div>
+
+</div>
+</div>
+
+<!-- SOLUTIONS -->
+<section>
+<div class="container">
+<h2 class="section-title">OUR UNIFORM SOLUTIONS</h2>
+
+<div class="solution-grid">
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?auto=format&fit=crop&w=600&q=85" alt="School">
+<div class="solution-label">SCHOOL <span class="round-arrow">›</span></div>
+</div>
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?auto=format&fit=crop&w=600&q=85" alt="Corporate">
+<div class="solution-label">CORPORATE <span class="round-arrow">›</span></div>
+</div>
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=600&q=85" alt="Hospitality">
+<div class="solution-label">HOSPITALITY <span class="round-arrow">›</span></div>
+</div>
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=85" alt="Workwear">
+<div class="solution-label">WORKWEAR <span class="round-arrow">›</span></div>
+</div>
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=600&q=85" alt="Healthcare">
+<div class="solution-label">HEALTHCARE <span class="round-arrow">›</span></div>
+</div>
+
+<div class="solution">
+<img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=600&q=85" alt="Event">
+<div class="solution-label">EVENT <span class="round-arrow">›</span></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+<div class="container">
+<h2 class="section-title">HOW IT WORKS</h2>
+
+<div class="process-grid">
+
+<div class="step">
+<div class="step-icon">▤</div>
+<div>
+<div class="step-number">1</div>
+<div class="step-text">Tell Us<br>Your Requirement</div>
+</div>
+<div class="step-arrow">›</div>
+</div>
+
+<div class="step">
+<div class="step-icon">☏</div>
+<div>
+<div class="step-number">2</div>
+<div class="step-text">Discuss<br>Styles & Samples</div>
+</div>
+<div class="step-arrow">›</div>
+</div>
+
+<div class="step">
+<div class="step-icon">✓</div>
+<div>
+<div class="step-number">3</div>
+<div class="step-text">Confirm<br>Quantity & Details</div>
+</div>
+<div class="step-arrow">›</div>
+</div>
+
+<div class="step">
+<div class="step-icon">◇</div>
+<div>
+<div class="step-number">4</div>
+<div class="step-text">Production<br>& Supply</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="about-grid">
+
+<div class="about-image"></div>
+
+<div class="about-content">
+<h2>ABOUT AR ATTIRE</h2>
+<p>
+AR ATTIRE is the apparel brand of
+<strong>ABDUL RAHIM READYMADE GARMENTS TRADING LLC</strong>,
+established in 2003. We supply quality uniforms,
+ready-made garments and garment hangers across
+the UAE and international markets.
+</p>
+<a class="btn-gold" href="#contact" style="width:max-content">Learn More &nbsp; ›</a>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="container cta-inner">
+<div>
+<h2>NEED UNIFORMS?</h2>
+<p>Tell us what you need. We'll get back to you with the best solution.</p>
+</div>
+
+<a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote">
+Request a Quote &nbsp; ›
+</a>
+</div>
+</section>
+
+<!-- CONTACT -->
 <section class="contact" id="contact">
 <div class="container">
-<div class="section-label">Get In Touch</div>
-<h2>Let's discuss your requirements.</h2>
-<p>Contact AR ATTIRE for uniform enquiries, garment requirements or hanger solutions.</p>
-<a href="mailto:info@arattire.ae" class="button button-primary">Email Us</a>
-<div class="contact-info">
-<div class="contact-item">Email<span>info@arattire.ae</span></div>
-<div class="contact-item">Website<span>arattire.ae</span></div>
-<div class="contact-item">Location<span>United Arab Emirates</span></div>
+<h2 class="section-title">CONTACT AR ATTIRE</h2>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+<h3>General Enquiries</h3>
+<p>✉ <a href="mailto:info@arattire.ae">info@arattire.ae</a></p>
+<p>For general business enquiries and information.</p>
+</div>
+
+<div class="contact-box">
+<h3>Sales & Quotations</h3>
+<p>✉ <a href="mailto:sales@arattire.ae">sales@arattire.ae</a></p>
+<p>For uniform enquiries, quotations and bulk orders.</p>
+</div>
+
+<div class="contact-box">
+<h3>Location</h3>
+<p>⌖ Ajman, United Arab Emirates</p>
+<p>UAE & International Supply</p>
+</div>
+
 </div>
 </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
-<div class="container footer-content">
-<div class="footer-logo">AR ATTIRE</div>
-<p>© 2026 AR ATTIRE. All rights reserved.</p>
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<img class="footer-logo" src="ar-attire-logo-final.jpg" alt="AR ATTIRE">
+<p>ABDUL RAHIM READYMADE GARMENTS TRADING LLC</p>
+<p>Established 2003</p>
+</div>
+
+<div class="footer-col">
+<h4>Quick Links</h4>
+<a href="#home">Home</a>
+<a href="#uniforms">Uniforms</a>
+<a href="#products">Ready-Made Garments</a>
+<a href="#products">Garment Hangers</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="footer-col">
+<h4>Contact Us</h4>
+<a href="mailto:info@arattire.ae">✉ info@arattire.ae</a>
+<span>General Enquiries</span>
+<a href="mailto:sales@arattire.ae">✉ sales@arattire.ae</a>
+<span>Sales & Quotations</span>
+<p>⌖ Ajman, United Arab Emirates</p>
+</div>
+
+<div class="footer-col">
+<h4>Our Team (Uniforms)</h4>
+<p>♙ <strong>Anik</strong></p>
+<a href="mailto:anik.uniforms@arattire.ae">anik.uniforms@arattire.ae</a>
+
+<p>♙ <strong>Saddam</strong></p>
+<a href="mailto:saddam.uniforms@arattire.ae">saddam.uniforms@arattire.ae</a>
+
+<p>♙ <strong>Altamash</strong></p>
+<a href="mailto:altamash.uniforms@arattire.ae">altamash.uniforms@arattire.ae</a>
+</div>
+
+<div class="footer-col">
+<h4>Follow Us</h4>
+<p>LinkedIn &nbsp; Instagram</p>
+<p>Facebook &nbsp; YouTube</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<span>© 2024 AR ATTIRE. All rights reserved. &nbsp; | &nbsp; Abdul Rahim Readymade Garments Trading LLC &nbsp; | &nbsp; UAE</span>
+<span>Privacy Policy &nbsp; | &nbsp; Terms & Conditions</span>
+</div>
+
 </div>
 </footer>
+
 </body>
 </html>
