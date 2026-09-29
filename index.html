@@ -189,6 +189,40 @@ object-fit:cover;
 transition:.3s;
 }
 .image-card:hover img{transform:scale(1.04)}
+.school-category-grid{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:16px;
+margin-top:30px;
+}
+.school-category-card{
+display:block;
+color:#10243a;
+background:#fff;
+border:1px solid #e4ddcf;
+border-radius:4px;
+overflow:hidden;
+}
+.school-category-card .image-card{height:210px;border-radius:0}
+.school-category-card h3{
+font-family:Georgia,"Times New Roman",serif;
+font-size:18px;
+padding:14px 16px 2px;
+}
+.school-category-card p{font-size:13px;padding:0 16px 16px;color:#526171}
+.school-detail-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:30px;
+margin-top:26px;
+}
+.school-detail{
+scroll-margin-top:125px;
+}
+.school-detail img{
+width:100%;
+height:auto;
+}
 .card-overlay{
 position:absolute;
 inset:0;
@@ -474,6 +508,7 @@ background-position:center;
 .hero h1{font-size:45px}
 .hero p{font-size:17px}
 .card-grid{grid-template-columns:1fr}
+.school-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .solution-grid{
 grid-template-columns:repeat(3,1fr);
 }
@@ -504,6 +539,8 @@ min-height:260px;
 padding:11px 17px;
 }
 .card-grid{gap:10px}
+.school-category-grid{grid-template-columns:1fr}
+.school-category-card .image-card{height:220px}
 .image-card{height:155px}
 .trust-grid{grid-template-columns:1fr 1fr}
 .trust-item{
@@ -630,6 +667,42 @@ Request a Quote &nbsp; ›
     <p style="text-align:center;max-width:800px;margin:0 auto 30px;">
       Professional school uniforms designed for comfort, durability and a consistent school identity.
     </p>
+    <div class="school-category-grid">
+      <a class="school-category-card" href="#boys-uniforms">
+        <div class="image-card">
+          <img src="school-uniforms/boys-uniforms.png" alt="Boys’ school uniform collection">
+          <div class="card-overlay"><h3>BOYS’ UNIFORMS</h3><span class="round-arrow">›</span></div>
+        </div>
+        <h3>Boys’ Uniforms</h3><p>Everyday school uniform essentials.</p>
+      </a>
+      <a class="school-category-card" href="#girls-uniforms">
+        <div class="image-card">
+          <img src="school-uniforms/girls-uniforms.png" alt="Girls’ school uniform collection">
+          <div class="card-overlay"><h3>GIRLS’ UNIFORMS</h3><span class="round-arrow">›</span></div>
+        </div>
+        <h3>Girls’ Uniforms</h3><p>Comfortable, school-ready uniform essentials.</p>
+      </a>
+      <a class="school-category-card" href="#pe-sportswear">
+        <div class="image-card">
+          <img src="school-uniforms/pe-sportswear.png" alt="School PE and sportswear collection">
+          <div class="card-overlay"><h3>PE &amp; SPORTSWEAR</h3><span class="round-arrow">›</span></div>
+        </div>
+        <h3>PE &amp; Sportswear</h3><p>Activewear for sport and school activities.</p>
+      </a>
+      <a class="school-category-card" href="#blazers-formalwear">
+        <div class="image-card">
+          <img src="school-uniforms/blazers-formalwear.png" alt="School blazers and formalwear collection">
+          <div class="card-overlay"><h3>BLAZERS &amp; FORMALWEAR</h3><span class="round-arrow">›</span></div>
+        </div>
+        <h3>Blazers &amp; Formalwear</h3><p>Polished uniform pieces for formal occasions.</p>
+      </a>
+    </div>
+    <div class="school-detail-grid">
+      <article class="school-detail" id="boys-uniforms"><img src="school-uniforms/boys-uniforms.png" alt="Boys’ Uniforms collection page"></article>
+      <article class="school-detail" id="girls-uniforms"><img src="school-uniforms/girls-uniforms.png" alt="Girls’ Uniforms collection page"></article>
+      <article class="school-detail" id="pe-sportswear"><img src="school-uniforms/pe-sportswear.png" alt="PE &amp; Sportswear collection page"></article>
+      <article class="school-detail" id="blazers-formalwear"><img src="school-uniforms/blazers-formalwear.png" alt="Blazers &amp; Formalwear collection page"></article>
+    </div>
   </div>
 </section>
 
