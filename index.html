@@ -395,6 +395,67 @@ display:flex;align-items:center;justify-content:space-between;gap:14px;margin-to
 .pe-gallery-actions p{font-size:12px;color:#526171}
 .pe-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
 body.pe-catalog-open{overflow:hidden}
+.formal-catalog-modal[hidden],
+.formal-catalog-gallery[hidden]{display:none!important}
+.formal-catalog-modal{
+position:fixed;inset:0;z-index:2000;display:flex;align-items:center;
+justify-content:center;padding:18px;
+}
+.formal-catalog-backdrop{position:absolute;inset:0;background:rgba(3,15,26,.76);backdrop-filter:blur(3px)}
+.formal-catalog-panel{
+position:relative;z-index:1;width:min(100%,980px);max-height:90vh;overflow:auto;
+background:#f8f5ee;border:1px solid rgba(241,201,109,.65);border-radius:6px;
+box-shadow:0 24px 80px rgba(0,0,0,.4);
+}
+.formal-catalog-header{
+position:sticky;top:0;z-index:2;display:flex;align-items:center;
+justify-content:space-between;gap:20px;padding:17px 22px;color:#fff;
+background:#09233a;border-bottom:2px solid #d8aa48;
+}
+.formal-catalog-header h2,.formal-catalog-gallery h3{font-family:Georgia,"Times New Roman",serif}
+.formal-catalog-header p{font-size:13px;color:#dce2e8;margin-top:2px}
+.formal-catalog-close{
+width:38px;height:38px;flex:0 0 38px;border:1px solid rgba(255,255,255,.35);
+border-radius:50%;background:transparent;color:#fff;font-size:25px;line-height:1;cursor:pointer;
+}
+.formal-catalog-close:hover{background:#f1c96d;color:#10243a}
+.formal-catalog-content{padding:20px 22px 24px}
+.formal-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.formal-catalog-category{
+display:block;text-align:left;width:100%;border:1px solid #e2dacb;border-radius:4px;
+background:#fff;color:#10243a;overflow:hidden;cursor:pointer;
+transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.formal-catalog-category:hover,.formal-catalog-category:focus-visible{
+transform:translateY(-2px);border-color:#d8aa48;box-shadow:0 8px 22px rgba(16,36,58,.12);outline:none;
+}
+.formal-catalog-category img{width:100%;aspect-ratio:1.9;object-fit:contain;background:#f2eee5}
+.formal-catalog-category span{
+display:block;padding:11px 13px;font-family:Georgia,"Times New Roman",serif;
+font-size:16px;font-weight:700;
+}
+.formal-catalog-gallery{scroll-margin-top:88px}
+.formal-catalog-back{
+border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;
+padding:0;margin:0 0 12px;cursor:pointer;
+}
+.formal-catalog-gallery h3{font-size:25px;color:#10243a;margin-bottom:3px}
+.formal-catalog-gallery .gallery-copy{font-size:13px;color:#526171;margin-bottom:14px}
+.formal-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.formal-product-tile{overflow:hidden;border:1px solid #e2dacb;border-radius:4px;background:#fff}
+.formal-product-photo{
+aspect-ratio:3/4;background-color:#f2eee5;background-repeat:no-repeat;background-size:400% 200%;
+}
+.formal-product-tile h4{
+padding:9px 10px 11px;font-family:Georgia,"Times New Roman",serif;
+font-size:13px;font-weight:600;line-height:1.3;color:#10243a;
+}
+.formal-gallery-actions{
+display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:16px;
+}
+.formal-gallery-actions p{font-size:12px;color:#526171}
+.formal-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
+body.formal-catalog-open{overflow:hidden}
 .girls-catalog-modal[hidden],
 .girls-category-gallery[hidden]{display:none!important}
 .girls-catalog-modal{
@@ -760,9 +821,11 @@ background-position:center;
 .school-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .boys-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .pe-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.formal-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .girls-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .boys-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .pe-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.formal-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .solution-grid{
 grid-template-columns:repeat(3,1fr);
 }
@@ -807,6 +870,15 @@ padding:11px 17px;
 .pe-catalog-gallery h3{font-size:21px}
 .pe-gallery-actions{align-items:flex-start;flex-direction:column}
 .pe-gallery-actions .quote-btn{display:block}
+.formal-catalog-modal{padding:8px}
+.formal-catalog-panel{max-height:94vh}
+.formal-catalog-header{padding:14px 16px}
+.formal-catalog-content{padding:14px}
+.formal-catalog-grid{gap:9px}
+.formal-catalog-category span{padding:9px 13px;font-size:13px;line-height:1.25}
+.formal-catalog-gallery h3{font-size:21px}
+.formal-gallery-actions{align-items:flex-start;flex-direction:column}
+.formal-gallery-actions .quote-btn{display:block}
 .girls-catalog-modal{padding:8px}
 .girls-catalog-panel{max-height:94vh}
 .girls-catalog-header{padding:14px 16px}
@@ -1365,6 +1437,128 @@ Request a Quote &nbsp; ›
   });
 
   document.getElementById('pe-catalog-back').addEventListener('click', () => {
+    showCategories();
+    categoryView.querySelector('button').focus();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (!modal.hidden && event.key === 'Escape') closeCatalogue();
+  });
+})();
+</script>
+
+<div class="formal-catalog-modal" id="formal-catalog-modal" hidden>
+  <div class="formal-catalog-backdrop" data-formal-close></div>
+  <section class="formal-catalog-panel" role="dialog" aria-modal="true" aria-labelledby="formal-catalog-title" tabindex="-1">
+    <header class="formal-catalog-header">
+      <div>
+        <h2 id="formal-catalog-title">Blazers &amp; Formalwear</h2>
+        <p id="formal-catalog-intro">Choose a collection to view the catalogue.</p>
+      </div>
+      <button class="formal-catalog-close" type="button" aria-label="Close catalogue" data-formal-close>×</button>
+    </header>
+    <div class="formal-catalog-content">
+      <div class="formal-catalog-grid" id="formal-catalog-categories">
+        <button class="formal-catalog-category" type="button" data-category="school-blazers" data-title="School Blazers" data-gallery="school-uniforms/blazers-catalogue/school-blazers-gallery.png" data-alt="School blazers"><img src="school-uniforms/blazers-catalogue/school-blazers.png" alt="School blazers" loading="lazy"><span>School Blazers</span></button>
+        <button class="formal-catalog-category" type="button" data-category="formal-trousers" data-title="Formal Trousers" data-gallery="school-uniforms/blazers-catalogue/formal-trousers-gallery.png" data-alt="Formal school trousers"><img src="school-uniforms/blazers-catalogue/formal-trousers.png" alt="Formal school trousers" loading="lazy"><span>Formal Trousers</span></button>
+        <button class="formal-catalog-category" type="button" data-category="formal-shirts" data-title="Formal Shirts" data-gallery="school-uniforms/blazers-catalogue/formal-shirts-gallery.png" data-alt="Formal school shirts"><img src="school-uniforms/blazers-catalogue/formal-shirts.png" alt="Formal school shirts" loading="lazy"><span>Formal Shirts</span></button>
+        <button class="formal-catalog-category" type="button" data-category="waistcoats" data-title="Waistcoats" data-gallery="school-uniforms/blazers-catalogue/waistcoats-gallery.png" data-alt="School waistcoats"><img src="school-uniforms/blazers-catalogue/waistcoats.png" alt="School waistcoats" loading="lazy"><span>Waistcoats</span></button>
+        <button class="formal-catalog-category" type="button" data-category="formal-skirts" data-title="Formal Skirts" data-gallery="school-uniforms/blazers-catalogue/formal-skirts-gallery.png" data-alt="Formal school skirts"><img src="school-uniforms/blazers-catalogue/formal-skirts.png" alt="Formal school skirts" loading="lazy"><span>Formal Skirts</span></button>
+        <button class="formal-catalog-category" type="button" data-category="formal-accessories" data-title="Formal Accessories" data-gallery="school-uniforms/blazers-catalogue/formal-accessories-gallery.png" data-alt="Formal uniform accessories"><img src="school-uniforms/blazers-catalogue/formal-accessories.png" alt="Formal uniform accessories" loading="lazy"><span>Formal Accessories</span></button>
+      </div>
+      <div class="formal-catalog-gallery" id="formal-catalog-gallery" hidden>
+        <button class="formal-catalog-back" type="button" id="formal-catalog-back">‹ All Blazers &amp; Formalwear categories</button>
+        <h3 id="formal-gallery-title"></h3>
+        <p class="gallery-copy">Explore eight coordinated product styles in this collection.</p>
+        <div class="formal-product-grid" id="formal-product-grid" role="list"></div>
+        <div class="formal-gallery-actions">
+          <p>Need school colours, sizing or bulk quantities? Ask us for a tailored quotation.</p>
+          <a class="quote-btn" id="formal-gallery-quote" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote">Request a Quote &nbsp; ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const formalCard = document.querySelector('.school-category-card[href="#blazers-formalwear"]');
+  const modal = document.getElementById('formal-catalog-modal');
+  const panel = modal.querySelector('.formal-catalog-panel');
+  const categoryView = document.getElementById('formal-catalog-categories');
+  const galleryView = document.getElementById('formal-catalog-gallery');
+  const galleryTitle = document.getElementById('formal-gallery-title');
+  const productGrid = document.getElementById('formal-product-grid');
+  const quoteLink = document.getElementById('formal-gallery-quote');
+  const catalogHeader = modal.querySelector('.formal-catalog-header');
+  let previousFocus = null;
+  const productStyles = {
+    'school-blazers': ['Classic navy blazer','Charcoal school blazer','Grey tailored blazer','Gold-button blazer','Ivory-piped blazer','Checked-lining blazer','Burgundy-piped blazer','Traditional two-button blazer'],
+    'formal-trousers': ['Navy straight-fit trousers','Charcoal tailored trousers','Grey formal trousers','Navy pleated trousers','Charcoal slim-fit trousers','Grey pinstripe trousers','Navy flat-front trousers','Classic school trousers'],
+    'formal-shirts': ['White long-sleeve shirt','Pale blue long-sleeve shirt','Ivory formal shirt','White button-down shirt','Pale blue short-sleeve shirt','White short-sleeve shirt','Contrast-trim shirt','Classic collar shirt'],
+    waistcoats: ['Navy single-breasted waistcoat','Charcoal formal waistcoat','Grey tailored waistcoat','Navy check waistcoat','Grey check waistcoat','Navy pinstripe waistcoat','Classic five-button waistcoat','Double-breasted waistcoat'],
+    'formal-skirts': ['Navy pleated skirt','Charcoal pleated skirt','Navy checked skirt','Grey checked skirt','Navy A-line skirt','Charcoal A-line skirt','Classic box-pleat skirt','Formal school skirt'],
+    'formal-accessories': ['Navy striped tie set','Burgundy formal tie','Classic bow tie','Gold-tone cufflinks','Leather formal belt','Navy pocket square','Gold-tone tie clip','Coordinated tie and pocket square']
+  };
+
+  const showCategories = () => {
+    categoryView.hidden = false;
+    galleryView.hidden = true;
+    document.getElementById('formal-catalog-intro').textContent = 'Choose a collection to view the catalogue.';
+  };
+
+  const closeCatalogue = () => {
+    modal.hidden = true;
+    document.body.classList.remove('formal-catalog-open');
+    showCategories();
+    if (previousFocus) previousFocus.focus();
+  };
+
+  const scrollGalleryIntoView = () => {
+    const galleryTop = panel.scrollTop + galleryView.getBoundingClientRect().top - panel.getBoundingClientRect().top;
+    panel.scrollTo({ top: Math.max(0, galleryTop - catalogHeader.offsetHeight - 12), behavior: 'smooth' });
+  };
+
+  formalCard.addEventListener('click', event => {
+    event.preventDefault();
+    previousFocus = formalCard;
+    showCategories();
+    modal.hidden = false;
+    document.body.classList.add('formal-catalog-open');
+    modal.querySelector('.formal-catalog-close').focus();
+  });
+
+  modal.querySelectorAll('[data-formal-close]').forEach(button => button.addEventListener('click', closeCatalogue));
+
+  categoryView.addEventListener('click', event => {
+    const button = event.target.closest('[data-category]');
+    if (!button) return;
+    galleryTitle.textContent = button.dataset.title;
+    productGrid.replaceChildren();
+    productStyles[button.dataset.category].forEach((style, index) => {
+      const tile = document.createElement('article');
+      tile.className = 'formal-product-tile';
+      tile.setAttribute('role', 'listitem');
+      const photo = document.createElement('div');
+      photo.className = 'formal-product-photo';
+      photo.setAttribute('role', 'img');
+      photo.setAttribute('aria-label', button.dataset.alt + ': ' + style);
+      photo.style.backgroundImage = 'url("' + button.dataset.gallery + '")';
+      photo.style.backgroundPosition = ((index % 4) * 100 / 3) + '% ' + (index < 4 ? '0%' : '100%');
+      const caption = document.createElement('h4');
+      caption.textContent = style;
+      tile.append(photo, caption);
+      productGrid.append(tile);
+    });
+    quoteLink.href = 'mailto:sales@arattire.ae?subject=' + encodeURIComponent('Request a Quote — Blazers & Formalwear: ' + button.dataset.title);
+    document.getElementById('formal-catalog-intro').textContent = 'Blazers & Formalwear collection';
+    categoryView.hidden = true;
+    galleryView.hidden = false;
+    document.getElementById('formal-catalog-back').focus({ preventScroll: true });
+    requestAnimationFrame(scrollGalleryIntoView);
+  });
+
+  document.getElementById('formal-catalog-back').addEventListener('click', () => {
     showCategories();
     categoryView.querySelector('button').focus();
   });
