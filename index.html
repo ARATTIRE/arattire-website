@@ -334,6 +334,87 @@ margin-top:16px;
 .boys-gallery-actions p{font-size:12px;color:#526171}
 .boys-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
 body.boys-catalog-open{overflow:hidden}
+.girls-catalog-modal[hidden],
+.girls-category-gallery[hidden]{display:none!important}
+.girls-catalog-modal{
+position:fixed;inset:0;z-index:2000;
+display:flex;align-items:center;justify-content:center;padding:18px;
+}
+.girls-catalog-backdrop{
+position:absolute;inset:0;background:rgba(3,15,26,.76);backdrop-filter:blur(3px);
+}
+.girls-catalog-panel{
+position:relative;z-index:1;width:min(100%,980px);max-height:90vh;overflow:auto;
+background:#f8f5ee;border:1px solid rgba(241,201,109,.65);border-radius:6px;
+box-shadow:0 24px 80px rgba(0,0,0,.4);
+}
+.girls-catalog-header{
+position:sticky;top:0;z-index:2;display:flex;align-items:center;
+justify-content:space-between;gap:20px;padding:17px 22px;color:#fff;
+background:#09233a;border-bottom:2px solid #d8aa48;
+}
+.girls-catalog-header h2,.girls-category-gallery h3{
+font-family:Georgia,"Times New Roman",serif;
+}
+.girls-catalog-header p{font-size:13px;color:#dce2e8;margin-top:2px}
+.girls-catalog-close{
+width:38px;height:38px;flex:0 0 38px;border:1px solid rgba(255,255,255,.35);
+border-radius:50%;background:transparent;color:#fff;font-size:25px;line-height:1;cursor:pointer;
+}
+.girls-catalog-close:hover{background:#f1c96d;color:#10243a}
+.girls-catalog-content{padding:20px 22px 24px}
+.girls-catalog-grid{
+display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+}
+.girls-category-card{
+display:flex;align-items:center;gap:14px;width:100%;min-height:100px;
+padding:14px;text-align:left;border:1px solid #e2dacb;border-radius:4px;
+background:#fff;color:#10243a;cursor:pointer;
+transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.girls-category-card:hover,.girls-category-card:focus-visible{
+transform:translateY(-2px);border-color:#d8aa48;
+box-shadow:0 8px 22px rgba(16,36,58,.12);outline:none;
+}
+.girls-category-thumb{
+width:100px;height:70px;flex:0 0 100px;object-fit:contain;
+background:#f2eee5;border-radius:3px;
+}
+.girls-category-mark{
+display:flex;align-items:center;justify-content:center;flex:0 0 42px;height:42px;
+border:1px solid #d8aa48;border-radius:50%;color:#9a742b;
+font-family:Georgia,"Times New Roman",serif;font-size:14px;
+}
+.girls-category-copy{display:flex;flex:1;flex-direction:column;gap:3px}
+.girls-category-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.25}
+.girls-category-copy small{color:#8c6824;font-size:9px;font-weight:700;letter-spacing:1.2px}
+.girls-category-arrow{color:#c89939;font-size:23px;line-height:1}
+.girls-category-gallery{scroll-margin-top:88px}
+.girls-gallery-back{
+border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;
+padding:0;margin:0 0 12px;cursor:pointer;
+}
+.girls-category-gallery h3{font-size:25px;color:#10243a;margin-bottom:3px}
+.girls-category-gallery .gallery-copy{font-size:13px;color:#526171;margin-bottom:14px}
+.girls-gallery-empty{
+min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+gap:9px;padding:25px;text-align:center;background:#f2eee5;
+border:1px dashed #d8aa48;border-radius:4px;color:#526171;
+}
+.girls-gallery-empty strong{
+font-family:Georgia,"Times New Roman",serif;font-size:17px;color:#10243a;
+}
+.girls-gallery-empty span{font-size:12px;max-width:440px}
+.girls-gallery-image{
+display:block;width:100%;height:auto;max-height:520px;object-fit:contain;
+background:#f2eee5;border:1px solid #e2dacb;border-radius:4px;
+}
+.girls-gallery-actions{
+display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:16px;
+}
+.girls-gallery-actions p{font-size:12px;color:#526171}
+.girls-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
+body.girls-catalog-open{overflow:hidden}
 .card-overlay{
 position:absolute;
 inset:0;
@@ -621,6 +702,7 @@ background-position:center;
 .card-grid{grid-template-columns:1fr}
 .school-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .boys-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.girls-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .boys-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .solution-grid{
 grid-template-columns:repeat(3,1fr);
@@ -657,6 +739,18 @@ padding:11px 17px;
 .boys-catalog-panel{max-height:94vh}
 .boys-catalog-header{padding:14px 16px}
 .boys-catalog-content{padding:14px}
+.girls-catalog-modal{padding:8px}
+.girls-catalog-panel{max-height:94vh}
+.girls-catalog-header{padding:14px 16px}
+.girls-catalog-content{padding:14px}
+.girls-catalog-grid{gap:9px}
+.girls-category-card{gap:9px;min-height:82px;padding:9px}
+.girls-category-mark{flex-basis:34px;height:34px;font-size:12px}
+.girls-category-copy strong{font-size:13px}
+.girls-category-copy small{font-size:8px;letter-spacing:.8px}
+.girls-category-gallery h3{font-size:21px}
+.girls-gallery-actions{align-items:flex-start;flex-direction:column}
+.girls-gallery-actions .quote-btn{display:block}
 .boys-catalog-grid{gap:9px}
 .boys-catalog-category span{padding:9px;font-size:13px;line-height:1.25}
 .boys-catalog-gallery h3{font-size:21px}
@@ -957,6 +1051,135 @@ Request a Quote &nbsp; ›
     showCategories();
     categoryView.querySelector('button').focus();
   });
+
+  document.addEventListener('keydown', event => {
+    if (!modal.hidden && event.key === 'Escape') closeCatalogue();
+  });
+})();
+</script>
+
+<div class="girls-catalog-modal" id="girls-catalog-modal" hidden>
+  <div class="girls-catalog-backdrop" data-girls-close></div>
+  <section class="girls-catalog-panel" role="dialog" aria-modal="true" aria-labelledby="girls-catalog-title" tabindex="-1">
+    <header class="girls-catalog-header">
+      <div>
+        <h2 id="girls-catalog-title">Girls’ Uniforms</h2>
+        <p id="girls-catalog-intro">Choose a collection to view the catalogue.</p>
+      </div>
+      <button class="girls-catalog-close" type="button" aria-label="Close catalogue" data-girls-close>×</button>
+    </header>
+    <div class="girls-catalog-content">
+      <div id="girls-catalog-categories">
+        <div class="girls-catalog-grid">
+          <button class="girls-category-card" type="button" data-title="Blouses / Shirts" data-girls-gallery="girls-gallery-blouses" data-girls-thumbnail="school-uniforms/girls-catalogue/blouses-shirts.png" data-girls-products="school-uniforms/girls-catalogue/blouses-shirts-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/blouses-shirts.png" alt="Blouses and shirts" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Blouses / Shirts</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+          <button class="girls-category-card" type="button" data-title="Skirts" data-girls-gallery="girls-gallery-skirts" data-girls-thumbnail="school-uniforms/girls-catalogue/skirts.png" data-girls-products="school-uniforms/girls-catalogue/skirts-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/skirts.png" alt="Girls’ school skirts" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Skirts</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+          <button class="girls-category-card" type="button" data-title="Trousers" data-girls-gallery="girls-gallery-trousers" data-girls-thumbnail="school-uniforms/girls-catalogue/trousers.png" data-girls-products="school-uniforms/girls-catalogue/trousers-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/trousers.png" alt="Girls’ school trousers" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Trousers</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+          <button class="girls-category-card" type="button" data-title="Ties &amp; Accessories" data-girls-gallery="girls-gallery-accessories" data-girls-thumbnail="school-uniforms/girls-catalogue/ties-accessories.png" data-girls-products="school-uniforms/girls-catalogue/ties-accessories-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/ties-accessories.png" alt="Girls’ uniform ties and accessories" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Ties &amp; Accessories</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+          <button class="girls-category-card" type="button" data-title="Blazers &amp; Jackets" data-girls-gallery="girls-gallery-blazers" data-girls-thumbnail="school-uniforms/girls-catalogue/blazers-jackets.png" data-girls-products="school-uniforms/girls-catalogue/blazers-jackets-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/blazers-jackets.png" alt="Girls’ school blazers and jackets" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Blazers &amp; Jackets</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+          <button class="girls-category-card" type="button" data-title="Sweaters &amp; Cardigans" data-girls-gallery="girls-gallery-knitwear" data-girls-thumbnail="school-uniforms/girls-catalogue/sweaters-cardigans.png" data-girls-products="school-uniforms/girls-catalogue/sweaters-cardigans-gallery.png"><img class="girls-category-thumb" src="school-uniforms/girls-catalogue/sweaters-cardigans.png" alt="Girls’ school sweaters and cardigans" loading="lazy"><span class="girls-category-copy"><small>GIRLS’ COLLECTION</small><strong>Sweaters &amp; Cardigans</strong></span><span class="girls-category-arrow" aria-hidden="true">›</span></button>
+        </div>
+      </div>
+
+      <section class="girls-category-gallery" id="girls-gallery-blouses" aria-labelledby="girls-gallery-blouses-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-blouses-title">Blouses / Shirts</h3>
+        <p class="gallery-copy">School blouses and shirts for everyday comfort and a polished uniform.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/blouses-shirts-gallery.png" alt="Blouses and shirts product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Blouses%20%2F%20Shirts">Request a Quote &nbsp; ›</a></div>
+      </section>
+      <section class="girls-category-gallery" id="girls-gallery-skirts" aria-labelledby="girls-gallery-skirts-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-skirts-title">Skirts</h3>
+        <p class="gallery-copy">Classic school skirts with comfortable fits for the school day.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/skirts-gallery.png" alt="Girls’ skirts product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Skirts">Request a Quote &nbsp; ›</a></div>
+      </section>
+      <section class="girls-category-gallery" id="girls-gallery-trousers" aria-labelledby="girls-gallery-trousers-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-trousers-title">Trousers</h3>
+        <p class="gallery-copy">Comfortable, durable school trousers designed for all-day wear and easy movement.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/trousers-gallery.png" alt="Girls’ trousers product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Trousers">Request a Quote &nbsp; ›</a></div>
+      </section>
+      <section class="girls-category-gallery" id="girls-gallery-accessories" aria-labelledby="girls-gallery-accessories-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-accessories-title">Ties &amp; Accessories</h3>
+        <p class="gallery-copy">Finishing touches that complete the school uniform.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/ties-accessories-gallery.png" alt="Girls’ uniform ties and accessories product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Ties%20%26%20Accessories">Request a Quote &nbsp; ›</a></div>
+      </section>
+      <section class="girls-category-gallery" id="girls-gallery-blazers" aria-labelledby="girls-gallery-blazers-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-blazers-title">Blazers &amp; Jackets</h3>
+        <p class="gallery-copy">Smart layers to complete a polished school uniform.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/blazers-jackets-gallery.png" alt="Girls’ blazers and jackets product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Blazers%20%26%20Jackets">Request a Quote &nbsp; ›</a></div>
+      </section>
+      <section class="girls-category-gallery" id="girls-gallery-knitwear" aria-labelledby="girls-gallery-knitwear-title" tabindex="-1" hidden>
+        <button class="girls-gallery-back" type="button" data-girls-back>‹ All Girls’ Uniforms categories</button>
+        <h3 id="girls-gallery-knitwear-title">Sweaters &amp; Cardigans</h3>
+        <p class="gallery-copy">Comfortable knitwear for cooler days at school.</p>
+        <img class="girls-gallery-image" src="school-uniforms/girls-catalogue/sweaters-cardigans-gallery.png" alt="Girls’ sweaters and cardigans product gallery" loading="lazy">
+        <div class="girls-gallery-actions"><p>Ask us about school colours, sizing and bulk supply.</p><a class="quote-btn" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote%20%E2%80%94%20Girls%E2%80%99%20Uniforms%3A%20Sweaters%20%26%20Cardigans">Request a Quote &nbsp; ›</a></div>
+      </section>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const girlsCard = document.querySelector('.school-category-card[href="#girls-uniforms"]');
+  const modal = document.getElementById('girls-catalog-modal');
+  const panel = modal.querySelector('.girls-catalog-panel');
+  const header = modal.querySelector('.girls-catalog-header');
+  const categoryView = document.getElementById('girls-catalog-categories');
+  const galleries = [...modal.querySelectorAll('.girls-category-gallery')];
+  let previousFocus = null;
+
+  const showCategories = () => {
+    categoryView.hidden = false;
+    galleries.forEach(gallery => { gallery.hidden = true; });
+    document.getElementById('girls-catalog-intro').textContent = 'Choose a collection to view the catalogue.';
+  };
+
+  const closeCatalogue = () => {
+    modal.hidden = true;
+    document.body.classList.remove('girls-catalog-open');
+    showCategories();
+    if (previousFocus) previousFocus.focus();
+  };
+
+  const scrollGalleryIntoView = gallery => {
+    const galleryTop = panel.scrollTop + gallery.getBoundingClientRect().top - panel.getBoundingClientRect().top;
+    panel.scrollTo({ top: Math.max(0, galleryTop - header.offsetHeight - 12), behavior: 'smooth' });
+  };
+
+  girlsCard.addEventListener('click', event => {
+    event.preventDefault();
+    previousFocus = girlsCard;
+    showCategories();
+    modal.hidden = false;
+    document.body.classList.add('girls-catalog-open');
+    modal.querySelector('.girls-catalog-close').focus();
+  });
+
+  modal.querySelectorAll('[data-girls-close]').forEach(button => button.addEventListener('click', closeCatalogue));
+
+  categoryView.addEventListener('click', event => {
+    const button = event.target.closest('[data-girls-gallery]');
+    if (!button) return;
+    const gallery = document.getElementById(button.dataset.girlsGallery);
+    categoryView.hidden = true;
+    galleries.forEach(item => { item.hidden = item !== gallery; });
+    document.getElementById('girls-catalog-intro').textContent = button.dataset.title + ' collection';
+    gallery.querySelector('.girls-gallery-back').focus({ preventScroll: true });
+    requestAnimationFrame(() => scrollGalleryIntoView(gallery));
+  });
+
+  modal.querySelectorAll('[data-girls-back]').forEach(button => button.addEventListener('click', () => {
+    showCategories();
+    categoryView.querySelector('button').focus();
+  }));
 
   document.addEventListener('keydown', event => {
     if (!modal.hidden && event.key === 'Escape') closeCatalogue();
