@@ -367,9 +367,9 @@ border-radius:50%;background:transparent;color:#fff;font-size:25px;line-height:1
 display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
 }
 .girls-category-card{
-display:flex;align-items:center;gap:14px;width:100%;min-height:100px;
-padding:14px;text-align:left;border:1px solid #e2dacb;border-radius:4px;
-background:#fff;color:#10243a;cursor:pointer;
+display:block;text-align:left;width:100%;padding:0;min-height:0;
+border:1px solid #e2dacb;border-radius:4px;background:#fff;color:#10243a;
+overflow:hidden;cursor:pointer;
 transition:transform .18s,border-color .18s,box-shadow .18s;
 }
 .girls-category-card:hover,.girls-category-card:focus-visible{
@@ -377,18 +377,14 @@ transform:translateY(-2px);border-color:#d8aa48;
 box-shadow:0 8px 22px rgba(16,36,58,.12);outline:none;
 }
 .girls-category-thumb{
-width:100px;height:70px;flex:0 0 100px;object-fit:contain;
-background:#f2eee5;border-radius:3px;
+width:100%;aspect-ratio:1.9;object-fit:contain;background:#f2eee5;
 }
-.girls-category-mark{
-display:flex;align-items:center;justify-content:center;flex:0 0 42px;height:42px;
-border:1px solid #d8aa48;border-radius:50%;color:#9a742b;
-font-family:Georgia,"Times New Roman",serif;font-size:14px;
+.girls-category-mark,.girls-category-copy small,.girls-category-arrow{display:none!important}
+.girls-category-copy{display:block}
+.girls-category-copy strong{
+display:block;padding:11px 13px;
+font-family:Georgia,"Times New Roman",serif;font-size:16px;font-weight:700;
 }
-.girls-category-copy{display:flex;flex:1;flex-direction:column;gap:3px}
-.girls-category-copy strong{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.25}
-.girls-category-copy small{color:#8c6824;font-size:9px;font-weight:700;letter-spacing:1.2px}
-.girls-category-arrow{color:#c89939;font-size:23px;line-height:1}
 .girls-category-gallery{scroll-margin-top:88px}
 .girls-gallery-back{
 border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;
@@ -744,10 +740,8 @@ padding:11px 17px;
 .girls-catalog-header{padding:14px 16px}
 .girls-catalog-content{padding:14px}
 .girls-catalog-grid{gap:9px}
-.girls-category-card{gap:9px;min-height:82px;padding:9px}
-.girls-category-mark{flex-basis:34px;height:34px;font-size:12px}
-.girls-category-copy strong{font-size:13px}
-.girls-category-copy small{font-size:8px;letter-spacing:.8px}
+.girls-category-card{min-height:0;padding:0}
+.girls-category-copy strong{padding:9px;font-size:13px;line-height:1.25}
 .girls-category-gallery h3{font-size:21px}
 .girls-gallery-actions{align-items:flex-start;flex-direction:column}
 .girls-gallery-actions .quote-btn{display:block}
