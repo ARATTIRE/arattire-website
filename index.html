@@ -921,6 +921,30 @@ flex-direction:column;
 gap:7px;
 }
 }
+.corporate-catalogue{margin-top:28px}
+.corporate-audience{margin-top:28px}
+.corporate-audience:first-child{margin-top:0}
+.corporate-audience h3{font-family:Georgia,"Times New Roman",serif;font-size:24px;color:#10243a;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid #d8aa48}
+.corporate-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.corporate-category-card{display:block;width:100%;padding:0;text-align:left;border:1px solid #e2dacb;border-radius:4px;background:#fff;color:#10243a;overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+.corporate-category-card:hover,.corporate-category-card:focus-visible{transform:translateY(-2px);border-color:#d8aa48;box-shadow:0 8px 22px rgba(16,36,58,.12);outline:none}
+.corporate-category-card img{display:block;width:100%;aspect-ratio:1.9;object-fit:contain;background:#f2eee5}
+.corporate-category-card span{display:block;padding:11px 13px;font-family:Georgia,"Times New Roman",serif;font-size:16px;font-weight:700}
+.corporate-category-choices[hidden],.corporate-category-gallery[hidden]{display:none!important}
+.corporate-category-gallery{scroll-margin-top:100px;margin-top:24px}
+.corporate-gallery-back{border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;padding:0;margin:0 0 12px;cursor:pointer}
+.corporate-category-gallery h3{font-family:Georgia,"Times New Roman",serif;font-size:25px;color:#10243a;margin:0 0 3px}
+.corporate-gallery-audience{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a67b2e;margin:0 0 4px}
+.corporate-category-gallery .gallery-copy{font-size:13px;color:#526171;margin-bottom:14px}
+.corporate-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.corporate-product-tile{overflow:hidden;border:1px solid #e2dacb;border-radius:4px;background:#fff}
+.corporate-product-photo{aspect-ratio:3/4;background-color:#f2eee5;background-repeat:no-repeat;background-size:400% 200%}
+.corporate-product-tile h4{padding:9px 10px 11px;font-family:Georgia,"Times New Roman",serif;font-size:13px;font-weight:600;line-height:1.3;color:#10243a}
+.corporate-gallery-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:16px}
+.corporate-gallery-actions p{font-size:12px;color:#526171}
+.corporate-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
+@media(max-width:900px){.corporate-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.corporate-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+@media(max-width:600px){.corporate-category-grid{gap:9px}.corporate-audience h3{font-size:20px}.corporate-category-card span{padding:9px;font-size:13px;line-height:1.25}.corporate-category-gallery h3{font-size:21px}.corporate-gallery-actions{align-items:flex-start;flex-direction:column}.corporate-gallery-actions .quote-btn{display:block}}
 </style>
 </head>
 
@@ -1569,8 +1593,104 @@ Request a Quote &nbsp; ›
     <p style="text-align:center;max-width:800px;margin:0 auto 30px;">
       Professional corporate uniforms designed to create a smart, consistent and professional appearance.
     </p>
+    <div class="corporate-catalogue">
+      <div class="corporate-category-choices" id="corporate-category-choices">
+        <div class="corporate-audience" aria-labelledby="corporate-men-title">
+          <h3 id="corporate-men-title">MEN'S CORPORATE UNIFORMS</h3>
+          <div class="corporate-category-grid">
+            <button class="corporate-category-card" type="button" data-corporate-key="men-shirts" data-audience="Men's Corporate Uniforms" data-title="Corporate Shirts" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" data-alt="Men's corporate shirts"><img src="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" alt="" loading="lazy"><span>Corporate Shirts</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-trousers" data-audience="Men's Corporate Uniforms" data-title="Trousers" data-gallery="school-uniforms/corporate-catalogue/mens/trousers-gallery.png" data-alt="Men's corporate trousers"><img src="school-uniforms/corporate-catalogue/mens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-blazers" data-audience="Men's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="school-uniforms/corporate-catalogue/mens/blazers-jackets-gallery.png" data-alt="Men's corporate blazers and jackets"><img src="school-uniforms/corporate-catalogue/mens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-polo" data-audience="Men's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="school-uniforms/corporate-catalogue/mens/polo-smart-casual-gallery.png" data-alt="Men's polo and smart casual wear"><img src="school-uniforms/corporate-catalogue/mens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-waistcoats" data-audience="Men's Corporate Uniforms" data-title="Waistcoats" data-gallery="school-uniforms/corporate-catalogue/mens/waistcoats-gallery.png" data-alt="Men's corporate waistcoats"><img src="school-uniforms/corporate-catalogue/mens/waistcoats-gallery.png" alt="" loading="lazy"><span>Waistcoats</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-accessories" data-audience="Men's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" data-alt="Men's corporate accessories"><img src="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
+          </div>
+        </div>
+        <div class="corporate-audience" aria-labelledby="corporate-women-title">
+          <h3 id="corporate-women-title">WOMEN'S CORPORATE UNIFORMS</h3>
+          <div class="corporate-category-grid">
+            <button class="corporate-category-card" type="button" data-corporate-key="women-blouses" data-audience="Women's Corporate Uniforms" data-title="Blouses &amp; Shirts" data-gallery="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" data-alt="Women's corporate blouses and shirts"><img src="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" alt="" loading="lazy"><span>Blouses &amp; Shirts</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-trousers" data-audience="Women's Corporate Uniforms" data-title="Trousers" data-gallery="school-uniforms/corporate-catalogue/womens/trousers-gallery.png" data-alt="Women's corporate trousers"><img src="school-uniforms/corporate-catalogue/womens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-skirts" data-audience="Women's Corporate Uniforms" data-title="Skirts &amp; Dresses" data-gallery="school-uniforms/corporate-catalogue/womens/skirts-dresses-gallery.png" data-alt="Women's corporate skirts and dresses"><img src="school-uniforms/corporate-catalogue/womens/skirts-dresses-gallery.png" alt="" loading="lazy"><span>Skirts &amp; Dresses</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-blazers" data-audience="Women's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="school-uniforms/corporate-catalogue/womens/blazers-jackets-gallery.png" data-alt="Women's corporate blazers and jackets"><img src="school-uniforms/corporate-catalogue/womens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-polo" data-audience="Women's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="school-uniforms/corporate-catalogue/womens/polo-smart-casual-gallery.png" data-alt="Women's polo and smart casual wear"><img src="school-uniforms/corporate-catalogue/womens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-accessories" data-audience="Women's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="school-uniforms/corporate-catalogue/womens/corporate-accessories-gallery.png" data-alt="Women's corporate accessories"><img src="school-uniforms/corporate-catalogue/womens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="corporate-category-gallery" id="corporate-category-gallery" hidden>
+        <button class="corporate-gallery-back" type="button" id="corporate-gallery-back">‹ All Corporate Uniforms categories</button>
+        <p class="corporate-gallery-audience" id="corporate-gallery-audience"></p>
+        <h3 id="corporate-gallery-title"></h3>
+        <p class="gallery-copy">Explore eight coordinated product styles in this collection.</p>
+        <div class="corporate-product-grid" id="corporate-product-grid" role="list"></div>
+        <div class="corporate-gallery-actions">
+          <p>Need custom colours, sizing or bulk quantities? Ask us for a tailored quotation.</p>
+          <a class="quote-btn" id="corporate-gallery-quote" href="mailto:sales@arattire.ae?subject=Request%20a%20Quote">Request a Quote &nbsp; ›</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+(() => {
+  const categoryChoices = document.getElementById('corporate-category-choices');
+  const gallery = document.getElementById('corporate-category-gallery');
+  const galleryAudience = document.getElementById('corporate-gallery-audience');
+  const galleryTitle = document.getElementById('corporate-gallery-title');
+  const productGrid = document.getElementById('corporate-product-grid');
+  const quoteLink = document.getElementById('corporate-gallery-quote');
+  const styles = {
+    'men-shirts': ['Classic white men's dress shirt','Pale blue Oxford shirt','Blue button-down shirt','Fine pinstripe dress shirt','Charcoal business shirt','Blue micro-check shirt','Navy tailored shirt','Light grey office shirt'],
+    'men-trousers': ['Navy straight-fit trousers','Charcoal regular-fit trousers','Black tailored trousers','Taupe office trousers','Grey pleated trousers','Navy flat-front trousers','Charcoal pinstripe trousers','Modern tapered trousers'],
+    'men-blazers': ['Classic navy blazer','Charcoal notch-lapel blazer','Black single-breasted jacket','Mid-grey business blazer','Navy double-breasted blazer','Blue check sport coat','Textured charcoal blazer','Classic grey suit jacket'],
+    'men-polo': ['Navy pique polo','White cotton polo','Charcoal polo shirt','Pale blue polo shirt','Cream knit polo','Smart casual button-up shirt','Fine-gauge crew sweater','Navy quarter-zip knit'],
+    'men-waistcoats': ['Navy five-button waistcoat','Charcoal formal waistcoat','Black tailored vest','Mid-grey suit waistcoat','Taupe business waistcoat','Grey check waistcoat','Navy pinstripe waistcoat','Classic six-button vest'],
+    'men-accessories': ['Navy silk tie','Striped blue business tie','Tie and leather belt set','Gold-tone cufflinks','Classic tie bar','Navy pocket square','Business dress socks set','Coordinated tie and pocket square'],
+    'women-blouses': ['White fitted blouse','Pale blue tailored shirt','Ivory bow-neck blouse','Blue pinstripe shirt','Soft grey office blouse','White contrast-trim shirt','Blush tailored blouse','Ruffle-front ivory blouse'],
+    'women-trousers': ['Navy high-rise straight trousers','Charcoal slim ankle trousers','Black wide-leg trousers','Taupe tailored trousers','Navy pinstripe trousers','Black tapered office trousers','Grey straight-leg trousers','Charcoal wide-leg trousers'],
+    'women-skirts': ['Navy pencil skirt','Charcoal A-line skirt','Black sheath dress','Taupe belted office dress','Navy pinstripe skirt','Charcoal tailored dress','Black knee-length skirt','Navy structured work dress'],
+    'women-blazers': ['Navy shaped blazer','Light grey tailored jacket','Black double-breasted blazer','Taupe fitted blazer','Charcoal notch-lapel jacket','Classic navy single-button blazer','Ivory collarless jacket','Black tailored office blazer'],
+    'women-polo': ['Navy fitted polo','White shaped polo','Charcoal knit polo','Pale blue fitted polo','Ivory ribbed polo','Smart casual blouse','Navy fine-gauge cardigan','Cream quarter-zip knit'],
+    'women-accessories': ['Navy silk neck scarf','Cream and navy neckerchief','Slim navy leather belt','Gold-tone floral brooch','Classic office jewelry set','Silk hair accessory','Folded silk scarf square','Coordinated scarf and belt set']
+  };
+
+  categoryChoices.addEventListener('click', event => {
+    const button = event.target.closest('[data-corporate-key]');
+    if (!button) return;
+    galleryAudience.textContent = button.dataset.audience;
+    galleryTitle.textContent = button.dataset.title;
+    productGrid.replaceChildren();
+    styles[button.dataset.corporateKey].forEach((style, index) => {
+      const tile = document.createElement('article');
+      tile.className = 'corporate-product-tile';
+      tile.setAttribute('role', 'listitem');
+      const photo = document.createElement('div');
+      photo.className = 'corporate-product-photo';
+      photo.setAttribute('role', 'img');
+      photo.setAttribute('aria-label', button.dataset.alt + ': ' + style);
+      photo.style.backgroundImage = 'url("' + button.dataset.gallery + '")';
+      photo.style.backgroundPosition = ((index % 4) * 100 / 3) + '% ' + (index < 4 ? '0%' : '100%');
+      const caption = document.createElement('h4');
+      caption.textContent = style;
+      tile.append(photo, caption);
+      productGrid.append(tile);
+    });
+    quoteLink.href = 'mailto:sales@arattire.ae?subject=' + encodeURIComponent('Request a Quote — ' + button.dataset.audience + ': ' + button.dataset.title);
+    categoryChoices.hidden = true;
+    gallery.hidden = false;
+    document.getElementById('corporate-gallery-back').focus({ preventScroll: true });
+    requestAnimationFrame(() => gallery.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  });
+
+  document.getElementById('corporate-gallery-back').addEventListener('click', () => {
+    gallery.hidden = true;
+    categoryChoices.hidden = false;
+    categoryChoices.querySelector('button').focus();
+  });
+})();
+</script>
 
 <section id="hospitality-workwear" style="padding:70px 0;">
   <div class="container">
