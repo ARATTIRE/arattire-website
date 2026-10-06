@@ -923,10 +923,9 @@ gap:7px;
 }
 .corporate-catalogue{margin-top:28px}
 .corporate-audience-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
-.corporate-audience-card{position:relative;display:block;width:100%;min-width:0;aspect-ratio:1.5;padding:0;border:0;border-radius:0;background:#f2eee5;overflow:hidden;cursor:pointer}
+.corporate-audience-card{position:relative;display:block;width:100%;min-width:0;aspect-ratio:1/1;padding:0;border:0;border-radius:0;background:#f2eee5;overflow:hidden;cursor:pointer}
 .corporate-audience-card:focus-visible{z-index:1;outline:3px solid #d8aa48;outline-offset:-3px}
-.corporate-audience-card img{display:block;width:200%;max-width:none;height:100%;object-fit:cover;object-position:left center;pointer-events:none}
-.corporate-audience-card img.is-right{transform:translateX(-50%)}
+.corporate-audience-card img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
 .corporate-category-view[hidden],.corporate-audience-choices[hidden]{display:none!important}
 .corporate-category-back{border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;padding:0;margin:0 0 14px;cursor:pointer}
 .corporate-audience{margin-top:28px}
@@ -1602,17 +1601,17 @@ Request a Quote &nbsp; ›
     </p>
     <div class="corporate-catalogue">
       <div class="corporate-audience-choices" id="corporate-audience-choices">
-        <button class="corporate-audience-card" type="button" data-audience-select="mens" aria-label="Men's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view" onclick="window.openCorporateAudience(this)">
-          <img src="corporate-uniforms/catalogue/audience-banner.png" alt="" loading="lazy">
+        <button class="corporate-audience-card" type="button" data-audience-select="mens" aria-label="Men's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view">
+          <img src="corporate-uniforms/catalogue/mens/audience-thumbnail.png" alt="Men's Corporate Uniforms — View Collection" loading="lazy">
         </button>
-        <button class="corporate-audience-card" type="button" data-audience-select="womens" aria-label="Women's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view" onclick="window.openCorporateAudience(this)">
-          <img class="is-right" src="corporate-uniforms/catalogue/audience-banner.png" alt="" loading="lazy">
+        <button class="corporate-audience-card" type="button" data-audience-select="womens" aria-label="Women's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view">
+          <img src="corporate-uniforms/catalogue/womens/audience-thumbnail.png" alt="Women's Corporate Uniforms — View Collection" loading="lazy">
         </button>
       </div>
       <div class="corporate-category-view" id="corporate-category-view" hidden>
         <button class="corporate-category-back" type="button" id="corporate-category-back">‹ All Corporate Uniforms</button>
         <div class="corporate-category-choices" id="corporate-category-choices">
-        <div class="corporate-audience" data-corporate-audience="mens" aria-labelledby="corporate-men-title">
+        <div class="corporate-audience" data-corporate-audience="mens" aria-labelledby="corporate-men-title" hidden>
           <h3 id="corporate-men-title">MEN'S CORPORATE UNIFORMS</h3>
           <div class="corporate-category-grid">
             <button class="corporate-category-card" type="button" data-corporate-key="men-shirts" data-audience="Men's Corporate Uniforms" data-title="Corporate Shirts" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" data-alt="Men's corporate shirts"><img src="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" alt="" loading="lazy"><span>Corporate Shirts</span></button>
@@ -1623,7 +1622,7 @@ Request a Quote &nbsp; ›
             <button class="corporate-category-card" type="button" data-corporate-key="men-accessories" data-audience="Men's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" data-alt="Men's corporate accessories"><img src="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
           </div>
         </div>
-        <div class="corporate-audience" data-corporate-audience="womens" aria-labelledby="corporate-women-title">
+        <div class="corporate-audience" data-corporate-audience="womens" aria-labelledby="corporate-women-title" hidden>
           <h3 id="corporate-women-title">WOMEN'S CORPORATE UNIFORMS</h3>
           <div class="corporate-category-grid">
             <button class="corporate-category-card" type="button" data-corporate-key="women-blouses" data-audience="Women's Corporate Uniforms" data-title="Blouses &amp; Shirts" data-gallery="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" data-alt="Women's corporate blouses and shirts"><img src="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" alt="" loading="lazy"><span>Blouses &amp; Shirts</span></button>
@@ -1663,6 +1662,7 @@ Request a Quote &nbsp; ›
   const productGrid = document.getElementById('corporate-product-grid');
   const quoteLink = document.getElementById('corporate-gallery-quote');
   let activeAudience = null;
+  let activeCategory = null;
   const styles = {
     'men-shirts': ['Classic white men\'s dress shirt','Pale blue Oxford shirt','Blue button-down shirt','Fine pinstripe dress shirt','Charcoal business shirt','Blue micro-check shirt','Navy tailored shirt','Light grey office shirt'],
     'men-trousers': ['Navy straight-fit trousers','Charcoal regular-fit trousers','Black tailored trousers','Taupe office trousers','Grey pleated trousers','Navy flat-front trousers','Charcoal pinstripe trousers','Modern tapered trousers'],
@@ -1678,7 +1678,9 @@ Request a Quote &nbsp; ›
     'women-accessories': ['Navy silk neck scarf','Cream and navy neckerchief','Slim navy leather belt','Gold-tone floral brooch','Classic office jewelry set','Silk hair accessory','Folded silk scarf square','Coordinated scarf and belt set']
   };
 
-  window.openCorporateAudience = button => {
+  audienceChoices.addEventListener('click', event => {
+    const button = event.target.closest('button[data-audience-select]');
+    if (!button || !audienceChoices.contains(button)) return;
     activeAudience = button.dataset.audienceSelect;
     audienceChoices.querySelectorAll('[data-audience-select]').forEach(card => {
       card.setAttribute('aria-expanded', card === button ? 'true' : 'false');
@@ -1690,7 +1692,7 @@ Request a Quote &nbsp; ›
     categoryView.hidden = false;
     categoryBack.focus({ preventScroll: true });
     requestAnimationFrame(() => categoryView.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-  };
+  });
 
   categoryBack.addEventListener('click', () => {
     categoryView.hidden = true;
@@ -1701,7 +1703,9 @@ Request a Quote &nbsp; ›
 
   categoryChoices.addEventListener('click', event => {
     const button = event.target.closest('[data-corporate-key]');
-    if (!button) return;
+    if (!button || button.closest('.corporate-audience').hidden) return;
+    activeCategory = button;
+    if (!styles[button.dataset.corporateKey]) return;
     galleryAudience.textContent = button.dataset.audience;
     galleryTitle.textContent = button.dataset.title;
     productGrid.replaceChildren();
@@ -1730,7 +1734,8 @@ Request a Quote &nbsp; ›
   document.getElementById('corporate-gallery-back').addEventListener('click', () => {
     gallery.hidden = true;
     categoryView.hidden = false;
-    categoryView.querySelector('.corporate-audience:not([hidden]) .corporate-category-card').focus();
+    if (activeCategory) activeCategory.focus({ preventScroll: true });
+    requestAnimationFrame(() => categoryView.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   });
 })();
 </script>
