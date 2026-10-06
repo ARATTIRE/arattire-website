@@ -922,12 +922,11 @@ gap:7px;
 }
 }
 .corporate-catalogue{margin-top:28px}
-.corporate-audience-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.corporate-audience-card{display:block;width:100%;padding:0;text-align:left;border:1px solid #e2dacb;border-radius:4px;background:#fff;color:#10243a;overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
-.corporate-audience-card:hover,.corporate-audience-card:focus-visible{transform:translateY(-2px);border-color:#d8aa48;box-shadow:0 8px 22px rgba(16,36,58,.12);outline:none}
-.corporate-audience-card img{display:block;width:100%;aspect-ratio:1.9;object-fit:contain;background:#f2eee5}
-.corporate-audience-card span{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:700}
-.corporate-audience-card span::after{content:"›";color:#b38a3e;font-size:24px;line-height:1}
+.corporate-audience-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.corporate-audience-card{position:relative;display:block;width:100%;min-width:0;aspect-ratio:1.5;padding:0;border:0;border-radius:0;background:#f2eee5;overflow:hidden;cursor:pointer}
+.corporate-audience-card:focus-visible{z-index:1;outline:3px solid #d8aa48;outline-offset:-3px}
+.corporate-audience-card img{display:block;width:200%;max-width:none;height:100%;object-fit:cover;object-position:left center;pointer-events:none}
+.corporate-audience-card img.is-right{transform:translateX(-50%)}
 .corporate-category-view[hidden],.corporate-audience-choices[hidden]{display:none!important}
 .corporate-category-back{border:0;background:transparent;color:#8c6824;font-weight:700;font-size:13px;padding:0;margin:0 0 14px;cursor:pointer}
 .corporate-audience{margin-top:28px}
@@ -952,7 +951,7 @@ gap:7px;
 .corporate-gallery-actions p{font-size:12px;color:#526171}
 .corporate-gallery-actions .quote-btn{display:inline-block;white-space:nowrap}
 @media(max-width:900px){.corporate-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.corporate-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
-@media(max-width:600px){.corporate-audience-choices{gap:9px}.corporate-audience-card span{padding:9px;font-size:12px;line-height:1.25}.corporate-category-grid{gap:9px}.corporate-audience h3{font-size:20px}.corporate-category-card span{padding:9px;font-size:13px;line-height:1.25}.corporate-category-gallery h3{font-size:21px}.corporate-gallery-actions{align-items:flex-start;flex-direction:column}.corporate-gallery-actions .quote-btn{display:block}}
+@media(max-width:600px){.corporate-audience-choices{grid-template-columns:1fr;gap:10px}.corporate-category-grid{gap:9px}.corporate-audience h3{font-size:20px}.corporate-category-card span{padding:9px;font-size:13px;line-height:1.25}.corporate-category-gallery h3{font-size:21px}.corporate-gallery-actions{align-items:flex-start;flex-direction:column}.corporate-gallery-actions .quote-btn{display:block}}
 </style>
 </head>
 
@@ -1603,13 +1602,11 @@ Request a Quote &nbsp; ›
     </p>
     <div class="corporate-catalogue">
       <div class="corporate-audience-choices" id="corporate-audience-choices">
-        <button class="corporate-audience-card" type="button" data-audience-select="mens" aria-controls="corporate-category-view">
-          <img src="corporate-uniforms/catalogue/mens/corporate-shirts-gallery.png" alt="" loading="lazy">
-          <span>MEN'S CORPORATE UNIFORMS</span>
+        <button class="corporate-audience-card" type="button" data-audience-select="mens" aria-label="Men's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view" onclick="window.openCorporateAudience(this)">
+          <img src="corporate-uniforms/catalogue/audience-banner.png" alt="" loading="lazy">
         </button>
-        <button class="corporate-audience-card" type="button" data-audience-select="womens" aria-controls="corporate-category-view">
-          <img src="corporate-uniforms/catalogue/womens/blouses-shirts-gallery.png" alt="" loading="lazy">
-          <span>WOMEN'S CORPORATE UNIFORMS</span>
+        <button class="corporate-audience-card" type="button" data-audience-select="womens" aria-label="Women's Corporate Uniforms — View Collection" aria-expanded="false" aria-controls="corporate-category-view" onclick="window.openCorporateAudience(this)">
+          <img class="is-right" src="corporate-uniforms/catalogue/audience-banner.png" alt="" loading="lazy">
         </button>
       </div>
       <div class="corporate-category-view" id="corporate-category-view" hidden>
@@ -1618,23 +1615,23 @@ Request a Quote &nbsp; ›
         <div class="corporate-audience" data-corporate-audience="mens" aria-labelledby="corporate-men-title">
           <h3 id="corporate-men-title">MEN'S CORPORATE UNIFORMS</h3>
           <div class="corporate-category-grid">
-            <button class="corporate-category-card" type="button" data-corporate-key="men-shirts" data-audience="Men's Corporate Uniforms" data-title="Corporate Shirts" data-gallery="corporate-uniforms/catalogue/mens/corporate-shirts-gallery.png" data-alt="Men's corporate shirts"><img src="corporate-uniforms/catalogue/mens/corporate-shirts-gallery.png" alt="" loading="lazy"><span>Corporate Shirts</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="men-trousers" data-audience="Men's Corporate Uniforms" data-title="Trousers" data-gallery="corporate-uniforms/catalogue/mens/trousers-gallery.png" data-alt="Men's corporate trousers"><img src="corporate-uniforms/catalogue/mens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="men-blazers" data-audience="Men's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="corporate-uniforms/catalogue/mens/blazers-jackets-gallery.png" data-alt="Men's corporate blazers and jackets"><img src="corporate-uniforms/catalogue/mens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="men-polo" data-audience="Men's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="corporate-uniforms/catalogue/mens/polo-smart-casual-gallery.png" data-alt="Men's polo and smart casual wear"><img src="corporate-uniforms/catalogue/mens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="men-waistcoats" data-audience="Men's Corporate Uniforms" data-title="Waistcoats" data-gallery="corporate-uniforms/catalogue/mens/waistcoats-gallery.png" data-alt="Men's corporate waistcoats"><img src="corporate-uniforms/catalogue/mens/waistcoats-gallery.png" alt="" loading="lazy"><span>Waistcoats</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="men-accessories" data-audience="Men's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="corporate-uniforms/catalogue/mens/corporate-accessories-gallery.png" data-alt="Men's corporate accessories"><img src="corporate-uniforms/catalogue/mens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-shirts" data-audience="Men's Corporate Uniforms" data-title="Corporate Shirts" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" data-alt="Men's corporate shirts"><img src="school-uniforms/corporate-catalogue/mens/corporate-shirts-gallery.png" alt="" loading="lazy"><span>Corporate Shirts</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-trousers" data-audience="Men's Corporate Uniforms" data-title="Trousers" data-gallery="school-uniforms/corporate-catalogue/mens/trousers-gallery.png" data-alt="Men's corporate trousers"><img src="school-uniforms/corporate-catalogue/mens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-blazers" data-audience="Men's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="school-uniforms/corporate-catalogue/mens/blazers-jackets-gallery.png" data-alt="Men's corporate blazers and jackets"><img src="school-uniforms/corporate-catalogue/mens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-polo" data-audience="Men's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="school-uniforms/corporate-catalogue/mens/polo-smart-casual-gallery.png" data-alt="Men's polo and smart casual wear"><img src="school-uniforms/corporate-catalogue/mens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-waistcoats" data-audience="Men's Corporate Uniforms" data-title="Waistcoats" data-gallery="school-uniforms/corporate-catalogue/mens/waistcoats-gallery.png" data-alt="Men's corporate waistcoats"><img src="school-uniforms/corporate-catalogue/mens/waistcoats-gallery.png" alt="" loading="lazy"><span>Waistcoats</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="men-accessories" data-audience="Men's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" data-alt="Men's corporate accessories"><img src="school-uniforms/corporate-catalogue/mens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
           </div>
         </div>
         <div class="corporate-audience" data-corporate-audience="womens" aria-labelledby="corporate-women-title">
           <h3 id="corporate-women-title">WOMEN'S CORPORATE UNIFORMS</h3>
           <div class="corporate-category-grid">
-            <button class="corporate-category-card" type="button" data-corporate-key="women-blouses" data-audience="Women's Corporate Uniforms" data-title="Blouses &amp; Shirts" data-gallery="corporate-uniforms/catalogue/womens/blouses-shirts-gallery.png" data-alt="Women's corporate blouses and shirts"><img src="corporate-uniforms/catalogue/womens/blouses-shirts-gallery.png" alt="" loading="lazy"><span>Blouses &amp; Shirts</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="women-trousers" data-audience="Women's Corporate Uniforms" data-title="Trousers" data-gallery="corporate-uniforms/catalogue/womens/trousers-gallery.png" data-alt="Women's corporate trousers"><img src="corporate-uniforms/catalogue/womens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="women-skirts" data-audience="Women's Corporate Uniforms" data-title="Skirts &amp; Dresses" data-gallery="corporate-uniforms/catalogue/womens/skirts-dresses-gallery.png" data-alt="Women's corporate skirts and dresses"><img src="corporate-uniforms/catalogue/womens/skirts-dresses-gallery.png" alt="" loading="lazy"><span>Skirts &amp; Dresses</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="women-blazers" data-audience="Women's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="corporate-uniforms/catalogue/womens/blazers-jackets-gallery.png" data-alt="Women's corporate blazers and jackets"><img src="corporate-uniforms/catalogue/womens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="women-polo" data-audience="Women's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="corporate-uniforms/catalogue/womens/polo-smart-casual-gallery.png" data-alt="Women's polo and smart casual wear"><img src="corporate-uniforms/catalogue/womens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
-            <button class="corporate-category-card" type="button" data-corporate-key="women-accessories" data-audience="Women's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="corporate-uniforms/catalogue/womens/corporate-accessories-gallery.png" data-alt="Women's corporate accessories"><img src="corporate-uniforms/catalogue/womens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-blouses" data-audience="Women's Corporate Uniforms" data-title="Blouses &amp; Shirts" data-gallery="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" data-alt="Women's corporate blouses and shirts"><img src="school-uniforms/corporate-catalogue/womens/blouses-shirts-gallery.png" alt="" loading="lazy"><span>Blouses &amp; Shirts</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-trousers" data-audience="Women's Corporate Uniforms" data-title="Trousers" data-gallery="school-uniforms/corporate-catalogue/womens/trousers-gallery.png" data-alt="Women's corporate trousers"><img src="school-uniforms/corporate-catalogue/womens/trousers-gallery.png" alt="" loading="lazy"><span>Trousers</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-skirts" data-audience="Women's Corporate Uniforms" data-title="Skirts &amp; Dresses" data-gallery="school-uniforms/corporate-catalogue/womens/skirts-dresses-gallery.png" data-alt="Women's corporate skirts and dresses"><img src="school-uniforms/corporate-catalogue/womens/skirts-dresses-gallery.png" alt="" loading="lazy"><span>Skirts &amp; Dresses</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-blazers" data-audience="Women's Corporate Uniforms" data-title="Blazers &amp; Jackets" data-gallery="school-uniforms/corporate-catalogue/womens/blazers-jackets-gallery.png" data-alt="Women's corporate blazers and jackets"><img src="school-uniforms/corporate-catalogue/womens/blazers-jackets-gallery.png" alt="" loading="lazy"><span>Blazers &amp; Jackets</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-polo" data-audience="Women's Corporate Uniforms" data-title="Polo &amp; Smart Casual" data-gallery="school-uniforms/corporate-catalogue/womens/polo-smart-casual-gallery.png" data-alt="Women's polo and smart casual wear"><img src="school-uniforms/corporate-catalogue/womens/polo-smart-casual-gallery.png" alt="" loading="lazy"><span>Polo &amp; Smart Casual</span></button>
+            <button class="corporate-category-card" type="button" data-corporate-key="women-accessories" data-audience="Women's Corporate Uniforms" data-title="Corporate Accessories" data-gallery="school-uniforms/corporate-catalogue/womens/corporate-accessories-gallery.png" data-alt="Women's corporate accessories"><img src="school-uniforms/corporate-catalogue/womens/corporate-accessories-gallery.png" alt="" loading="lazy"><span>Corporate Accessories</span></button>
           </div>
         </div>
       </div>
@@ -1667,7 +1664,7 @@ Request a Quote &nbsp; ›
   const quoteLink = document.getElementById('corporate-gallery-quote');
   let activeAudience = null;
   const styles = {
-    'men-shirts': ['Classic white men's dress shirt','Pale blue Oxford shirt','Blue button-down shirt','Fine pinstripe dress shirt','Charcoal business shirt','Blue micro-check shirt','Navy tailored shirt','Light grey office shirt'],
+    'men-shirts': ['Classic white men\'s dress shirt','Pale blue Oxford shirt','Blue button-down shirt','Fine pinstripe dress shirt','Charcoal business shirt','Blue micro-check shirt','Navy tailored shirt','Light grey office shirt'],
     'men-trousers': ['Navy straight-fit trousers','Charcoal regular-fit trousers','Black tailored trousers','Taupe office trousers','Grey pleated trousers','Navy flat-front trousers','Charcoal pinstripe trousers','Modern tapered trousers'],
     'men-blazers': ['Classic navy blazer','Charcoal notch-lapel blazer','Black single-breasted jacket','Mid-grey business blazer','Navy double-breasted blazer','Blue check sport coat','Textured charcoal blazer','Classic grey suit jacket'],
     'men-polo': ['Navy pique polo','White cotton polo','Charcoal polo shirt','Pale blue polo shirt','Cream knit polo','Smart casual button-up shirt','Fine-gauge crew sweater','Navy quarter-zip knit'],
@@ -1681,10 +1678,11 @@ Request a Quote &nbsp; ›
     'women-accessories': ['Navy silk neck scarf','Cream and navy neckerchief','Slim navy leather belt','Gold-tone floral brooch','Classic office jewelry set','Silk hair accessory','Folded silk scarf square','Coordinated scarf and belt set']
   };
 
-  audienceChoices.addEventListener('click', event => {
-    const button = event.target.closest('[data-audience-select]');
-    if (!button) return;
+  window.openCorporateAudience = button => {
     activeAudience = button.dataset.audienceSelect;
+    audienceChoices.querySelectorAll('[data-audience-select]').forEach(card => {
+      card.setAttribute('aria-expanded', card === button ? 'true' : 'false');
+    });
     categoryChoices.querySelectorAll('.corporate-audience').forEach(group => {
       group.hidden = group.dataset.corporateAudience !== activeAudience;
     });
@@ -1692,11 +1690,12 @@ Request a Quote &nbsp; ›
     categoryView.hidden = false;
     categoryBack.focus({ preventScroll: true });
     requestAnimationFrame(() => categoryView.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-  });
+  };
 
   categoryBack.addEventListener('click', () => {
     categoryView.hidden = true;
     audienceChoices.hidden = false;
+    audienceChoices.querySelectorAll('[data-audience-select]').forEach(card => card.setAttribute('aria-expanded', 'false'));
     audienceChoices.querySelector('[data-audience-select="' + activeAudience + '"]').focus();
   });
 
